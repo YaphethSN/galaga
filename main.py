@@ -132,6 +132,14 @@ class Entity:
         self.entity_buffer_index = len(entity_buffer)
         entity_buffer.append(self)
     
+    def is_colliding(self, other_entity):
+        x_min_distance = (other_entity.texture_dimensions.x + self.texture_dimensions.x)/2
+        y_min_distance = (other_entity.texture_dimensions.y + self.texture_dimensions.y)/2
+        x_distance = other_entity.position.x - self.position.x
+        y_distance = other_entity.position.y - self.position.y
+
+        if x_min_distance >= abs(x_distance) and y_min_distance >= abs(y_distance):
+            return True
 #    ^
 #  |/.\|
 # |/_^_\|
@@ -323,10 +331,10 @@ def control_player():
     global player
     player_speed = vec2(1, 0.5)
 
-    if key_down['up']:
-        player.position.y -= player_speed.y
-    if key_down['down']:
-        player.position.y += player_speed.y
+    # if key_down['up']:
+    #     player.position.y -= player_speed.y
+    # if key_down['down']:
+    #     player.position.y += player_speed.y
     if key_down['right']:
         player.position.x += player_speed.x
     if key_down['left']:
@@ -338,7 +346,7 @@ def control_player():
     elif key_just_down["space"]:
         x_pos = player.position.x + 0.5
         y_pos = round(player.position.y - 1)
-
+ 
         new_bullet = Bullet(x_pos, y_pos)
         new_bullet.pointing_up = True
         new_bullet.identification = "b214"
@@ -359,12 +367,7 @@ def simulate_bullet(bullet):
         if enemy.identification == bullet.identification: # we can't use pointing up because it's not guaranteed to be a property
             continue
 
-        x_min_distance = enemy.texture_dimensions.x/2 + 0.5
-        y_min_distance = enemy.texture_dimensions.y/2 + 0.5
-        x_distance = enemy.position.x - bullet.position.x
-        y_distance = enemy.position.y - bullet.position.y
-
-        if x_min_distance >= abs(x_distance) and y_min_distance >= abs(y_distance):
+        if bullet.is_colliding(enemy):
             hit = True
             enemy.health -= 1
             
@@ -425,6 +428,11 @@ def handle_enemies(current_enemy):
         
         if current_enemy.enemy_behavior == EnemyBehavior.ATTACKING:
             current_enemy.position.add(current_enemy.charge_direction)
+            
+            if current_enemy.is_colliding(player):
+                player.health -= 3
+                current_enemy.health = 0
+                
 
 minion_spawn_delay = 0
 minion_spawn_path = 0
@@ -508,7 +516,8 @@ def tick(stdscr):
     release_key_just_down()
 
 def draw_start_scene(stdscr):
-    title = ["     ___           ___           ___       ___           ___           ___      ",
+    title = ["                   Yapheth Stephan Nathaniel's re-enacment of                   ",
+             "     ___           ___           ___       ___           ___           ___      ",
              "    /\  \         /\  \         /\__\     /\  \         /\  \         /\  \     ",
              "   /::\  \       /::\  \       /:/  /    /::\  \       /::\  \       /::\  \    ",
              "  /:/\:\  \     /:/\:\  \     /:/  /    /:/\:\  \     /:/\:\  \     /:/\:\  \   ",
@@ -519,7 +528,7 @@ def draw_start_scene(stdscr):
              "  \:\/:/  /        /:/  /     \:\  \       /:/  /     \:\/:/  /        /:/  /   ",
              "   \::/  /        /:/  /       \:\__\     /:/  /       \::/  /        /:/  /    ",
              "    \/__/         \/__/         \/__/     \/__/         \/__/         \/__/     "]
-    dimensions = vec2(80, 11)
+    dimensions = vec2(80, 12)
     top_left = vec2(curses.COLS, curses.LINES).substr(dimensions).calc_divide(2).calc_to_int()
 
     for index in range(dimensions.y):
@@ -532,11 +541,12 @@ def draw_hud(stdscr):
     global player
 
     ascii_art = """
-  _ _ _ _ _ _ _ _ _ _ _
+ _ _ _ _ _ _ _ _ _ _ _
 /"""
 # /_/_/_/_/_/_/_/_/_ _ _ /"""
-    ascii_art += "_/" * player.health + "_ " * (10 - player.health) + "/"
+    ascii_art += "_/" * player.health + "_ " * (10 - player.health) + "_/"
     health_hud_layout = layout(ascii_art)
+    # print(ascii_art)
     health_hud_layout.draw_at(stdscr, 50, 50)# curses.LINES - 3, curses.COLS - 26)
 
 def draw_entities_from_buffer(stdscr):
