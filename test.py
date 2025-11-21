@@ -1,10 +1,12 @@
-class my_class():
-    identity = "meow"
+some_value = 2
 
-my_dict = {
-    "dog": my_class(),
-    "cat": my_class()
-}
+class my_class:
+    private_value = some_value
 
-for key in my_dict:
-    print(my_dict[key].identity)
+my_first_class = my_class()
+
+some_value = 10
+my_second_class = my_class()
+
+print(my_first_class.private_value)
+print(my_second_class.private_value)
