@@ -29,8 +29,12 @@ class layout:
                 continue
 
             start_column = min(len(layer), max(0, -column_pos))
-            end_column = max(0, min(curses.COLS - len(layer) - column_pos, len(layer) + 1))
+            end_column = max(0, min(curses.COLS - column_pos, len(layer)))
             # print(f"start: {start_column} end: {end_column}")
+
+            # if len(layer) > 16:
+            #     global debug_message
+            #     debug_message = f"curses COLS {curses.COLS} end_column {end_column} column pos {column_pos}"
 
             stdscr.addstr(line_pos + index, column_pos + start_column, layer[start_column:end_column])
 
@@ -653,14 +657,15 @@ def draw_start_scene(stdscr):
 def draw_hud(stdscr):
     global player
 
-    ascii_art = """
- _ _ _ _ _ _ _ _ _ _ _
+    stdscr.addstr(curses.LINES - 3, curses.COLS - 45, "REMAINING HEALTH:")
+
+    ascii_art = """ _ _ _ _ _ _ _ _ _ _ _
 /"""
 # /_/_/_/_/_/_/_/_/_ _ _ /"""
-    ascii_art += "_/" * player.health + "_ " * (10 - player.health) + "_/"
+    ascii_art += "_/" * player.health + "_ " *  min(10 - player.health, 10) + "_/"
     health_hud_layout = layout(ascii_art)
     # print(ascii_art)
-    health_hud_layout.draw_at(stdscr, 50, 50)# curses.LINES - 3, curses.COLS - 26)
+    health_hud_layout.draw_at(stdscr, curses.LINES - 4, curses.COLS - 26)
 
 def draw_entities_from_buffer(stdscr):
     for entity in entity_buffer:
