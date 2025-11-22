@@ -1,3 +1,4 @@
+import simpleaudio
 import math
 import time
 import curses
@@ -5,6 +6,7 @@ import pynput
 from enum import Enum
 import random
 import string   
+import simpleaudio
 
 stdscr = curses.initscr()
 
@@ -201,6 +203,7 @@ level_stages = [
         "top_left": vec2(0.25, 0.15), # clipspace
         "bottom_right": vec2(0.75, 0.45), # clipspace
         "stage_offset": vec2(0, 0), # actual coordinates
+        "stage_angle": 0, # from the center, in degrees
         "minion_positions_pool": [ # relative to stage
             vec2(0, 0.5), vec2(0.125, 0.5), vec2(0.25, 0.5), vec2(0.375, 0.5), vec2(0.5, 0.5), vec2(0.625, 0.5), vec2(0.75, 0.5), vec2(0.875, 0.5), vec2(1, 0.5),
             vec2(0, 1), vec2(0.125, 1), vec2(0.25, 1), vec2(0.375, 1), vec2(0.5, 1), vec2(0.625, 1), vec2(0.75, 1), vec2(0.875, 1), vec2(1, 1),
@@ -213,6 +216,7 @@ level_stages = [
         "top_left": vec2(0.05, 0.05),
         "bottom_right": vec2(0.95, 0.6),
         "stage_offset": vec2(0, 0),
+        "stage_angle": 0,
         "minion_positions_pool": [
             vec2(0, 1), vec2(1/7, 1), vec2(2/7, 1), vec2(3/7, 1), vec2(4/7, 1), vec2(5/7, 1), vec2(6/7, 1), vec2(1, 1),
 
@@ -229,6 +233,24 @@ level_stages = [
             vec2(17/28, 3/6), vec2(17/28, 2/6), vec2(17/28, 1/6), vec2(17/28, 0) 
         ], 
         "mothership_positions_pool": []
+    }, {
+        "top_left": vec2(0.3, 0.05),
+        "bottom_right": vec2(0.7, 0.5),
+        "stage_offset": vec2(0, 0),
+        "stage_angle": 0,
+        "minion_positions_pool": [
+          vec2(0, 0), vec2(0.5, 0), vec2(0.75, 0), vec2(1, 0),
+          vec2(0, 0.25),
+          vec2(0, 0.5), vec2(1, 0.5),
+          vec2(1, 0.75),
+          vec2(0, 1), vec2(0.25, 1), vec2(0.5, 1), vec2(1, 1)
+        ],
+        "butterflu_positions_pool": [
+            vec2(0.5, 0.25),
+            vec2(0.25, 0.5), vec2(0.5, 0.5), vec2(0.75, 0.5),
+            vec2(0.5, 0.75)
+        ],
+        "mothership_positions_pool": []
     }
 ]
 current_level_stage = 0
@@ -237,7 +259,7 @@ class Enemy(Entity):
     enemy_behavior = EnemyBehavior.IN_PATH
     path_index = 0
     path_tick = 0
-    stage_offset = vec2(0, 0)
+    stage_offset = None
     stage_index = 0
     attack_delay = 0
 
@@ -348,8 +370,6 @@ keystroke_handler.start()
 player = Starfighter(curses.COLS // 2 - 1, curses.LINES - 8)
 player.identification = "ws0k3"
 
-# monster = Minion(curses.COLS // 2 - 1, 10)
-# monster.identification = "m0n3r"
 
 class Scene(Enum):
     START = "start scene"
@@ -401,7 +421,6 @@ def control_player():
 
 def simulate_bullet(bullet):
     global entity_buffer
-    global bullets_buffer
     global debug_message
 
     hit = False
@@ -413,7 +432,7 @@ def simulate_bullet(bullet):
         if enemy.identification == bullet.identification: # we can't use pointing up because it's not guaranteed to be a property
             continue
 
-        if bullet.is_colliding(enemy):
+        if bullet.is_colliding(enemy) and not enemy.bulletproof:
             hit = True
             enemy.health -= 1
             
@@ -428,11 +447,40 @@ def simulate_bullet(bullet):
     else:
         bullet.position.y += 1
 
+# monster = Minion(curses.COLS // 2 - 1, 10)
+# monster.identification = "m0n3r"
+# These guys are just dancers
+five_inaccuracy = (curses.COLS + 10)%5
+six_inaccuracy = (curses.COLS + 10)%6
+seven_inaccuracy = (curses.COLS + 10)%7
+chosen_inaccuracy = min(five_inaccuracy, min(six_inaccuracy, seven_inaccuracy))
+spacing = 7
+if six_inaccuracy == chosen_inaccuracy:
+    spacing = 6
+if five_inaccuracy == chosen_inaccuracy:
+    spacing = 5
+
+debug_message = f"chosen spacing {spacing} number of minions to dance {math.floor((curses.COLS + 10)%spacing - 5)}"
+
+for i in range(math.floor((curses.COLS + 10)/spacing)):
+    new_minion = Minion()
+    new_minion.stage_offset = vec2(i * spacing, 0)
+    new_minion.health = 0
+
 def handle_enemies(current_enemy):
     global debug_message
+    global current_scene
     global player
     # current_enemy.position = vec2(0.0006527415143603133, 0.6771488469601677).multiply(vec2(curses.COLS, curses.LINES))
     # debug_message = f"x: {current_enemy.position.x} y: {current_enemy.position.y}"
+
+    if current_scene == Scene.START:
+        if isinstance(current_enemy, Minion):
+            x_pos = (time.time() * 5 + current_enemy.stage_offset.x) % (curses.COLS + 10) - 5
+            target_position = vec2(x_pos, math.sin(x_pos) - math.sin(x_pos * 3.1415926535 / curses.COLS) * 5 + 7)
+            current_enemy.position = target_position
+            # debug_message = f"target position {target_position} curses COLS {curses.COLS} stage offset {current_enemy.stage_offset}"
+        return
 
     if current_enemy.enemy_behavior == EnemyBehavior.IN_PATH:
         current_enemy.position = paths[current_enemy.path_index]['path'][current_enemy.path_tick].calc_multiply(vec2(curses.COLS, curses.LINES))
@@ -483,7 +531,7 @@ def handle_enemies(current_enemy):
             minion_bullet = Bullet(current_enemy.position.x, current_enemy.position.y + 2)
             minion_bullet.pointing_up = False
     elif isinstance(current_enemy, Butterflu):
-        if current_enemy.enemy_behavior == EnemyBehavior.GOING_TO_LINE and random.random() < 0.001:
+        if current_enemy.enemy_behavior == EnemyBehavior.GOING_TO_LINE and random.random() < 0.001 and player.health > 0:
             unit_delta = player.position.calc_substr(current_enemy.position)
             unit_delta.divide(unit_delta.length())
             
@@ -494,7 +542,7 @@ def handle_enemies(current_enemy):
         if current_enemy.enemy_behavior == EnemyBehavior.ATTACKING:
             current_enemy.position.add(current_enemy.charge_direction)
             
-            if current_enemy.is_colliding(player):
+            if current_enemy.is_colliding(player) and player.health > 0:
                 player.health -= 3
                 current_enemy.health = 0
             
@@ -555,10 +603,12 @@ def stage_controller():
                 butterflu_spawn_delay = 8
         
         current_stage['stage_offset'] = vec2(math.sin(time.time())*4, math.sin(time.time()*2))
-        if time.time() - stage_start_time > 30:
+        if time.time() - stage_start_time > 29.5:
             current_level_stage = 1
             minion_spawn_delay = 0
-            minion_spawn_path = 2
+            minion_spawn_path = PathIndex['STAGE_2_MINION_RIGHT']
+            butterflu_spawn_delay = 0
+            butterflu_spawn_path = PathIndex['STAGE_2_BUTTERFLU_LEFT']
     
     if current_level_stage == 1:
         if minion_pool_size > 0:
@@ -583,7 +633,7 @@ def stage_controller():
                 butterflu_spawn_delay -= 1
             else:
                 new_butterflu = Butterflu()
-                new_butterflu.path_index = 3
+                new_butterflu.path_index = butterflu_spawn_path
                 new_butterflu.stage_offset = level_stages[current_level_stage]['butterflu_positions_pool'].pop(random.randint(0, butterflu_pool_size - 1))
                 new_butterflu.stage_index = 1
                 new_butterflu.attack_delay = 300
@@ -594,12 +644,28 @@ def stage_controller():
                     butterflu_spawn_path = PathIndex['STAGE_2_BUTTERFLU_RIGHT']
                 else:
                     butterflu_spawn_path = PathIndex['STAGE_2_BUTTERFLU_LEFT']
+            
+    #     if time.time() - stage_start_time > 60:
+    #         current_level_stage = 2
+    #         minion_spawn_delay = 0
+    #         minion_spawn_path = PathIndex['STAGE_2_MINION_RIGHT']
+    #         butterflu_spawn_delay = 0
+    #         butterflu_spawn_path = PathIndex['STAGE_2_BUTTERFLU_LEFT']
+    
+    # if current_level_stage == 2:
+    #     pass
 
+
+gameplay_song = simpleaudio.WaveObject.from_wave_file('Mozart_-_Eine_kleine_Nachtmusik_-_1._Allegro.wav')
+welcome_song = simpleaudio.WaveObject.from_wave_file('mendelssohn\Mendelssohn_-_Symphony_No._4_in_A_major,_Op._90_Italian_-_III._Con_moto_moderato_(Musopen_Symphony).wav')
+play_welcome_song = welcome_song.play()
 
 def tick(stdscr):
     global current_scene
     global entity_buffer
     global stage_start_time
+
+    global play_welcome_song
 
     if current_scene == Scene.PLAY:
         handle_player()
@@ -626,32 +692,90 @@ def tick(stdscr):
         stage_controller()
 
     if current_scene == Scene.START:
+        max_index = len(entity_buffer)
+        current_index = 1
+        while current_index < max_index:
+            thing = entity_buffer[current_index]
+            # The health bit is missing so that I can set the dancer's health to zero so they die immediately once the game starts
+            if isinstance(thing, Enemy):
+                handle_enemies(thing)
+            
+            current_index += 1
+
         if key_just_down["space"]:
             stage_start_time = time.time()
             current_scene = Scene.PLAY
+            # play_welcome_song.stop()
+            gameplay_song.play()
     
     release_key_just_down()
 
 def draw_start_scene(stdscr):
-    title = ["                   Yapheth Stephan Nathaniel's re-enacment of                   ",
-             "     ___           ___           ___       ___           ___           ___      ",
-             "    /\  \         /\  \         /\__\     /\  \         /\  \         /\  \     ",
-             "   /::\  \       /::\  \       /:/  /    /::\  \       /::\  \       /::\  \    ",
-             "  /:/\:\  \     /:/\:\  \     /:/  /    /:/\:\  \     /:/\:\  \     /:/\:\  \   ",
-             " /:/  \:\  \   /::\~\:\  \   /:/  /    /::\~\:\  \   /:/  \:\  \   /::\~\:\  \  ",
-             "/:/__/_\:\__\ /:/\:\ \:\__\ /:/__/    /:/\:\ \:\__\ /:/__/_\:\__\ /:/\:\ \:\__\ ",
-             "\:\  /\ \/__/ \/__\:\/:/  / \:\  \    \/__\:\/:/  / \:\  /\ \/__/ \/__\:\/:/  / ",
-             " \:\ \:\__\        \::/  /   \:\  \        \::/  /   \:\ \:\__\        \::/  /  ",
-             "  \:\/:/  /        /:/  /     \:\  \       /:/  /     \:\/:/  /        /:/  /   ",
-             "   \::/  /        /:/  /       \:\__\     /:/  /       \::/  /        /:/  /    ",
-             "    \/__/         \/__/         \/__/     \/__/         \/__/         \/__/     "]
-    dimensions = vec2(80, 12)
+    # title = ["                   Yapheth Stephan Nathaniel's re-enacment of                   ",
+    #          "     ___           ___           ___       ___           ___           ___      ",
+    #          "    /\  \         /\  \         /\__\     /\  \         /\  \         /\  \     ",
+    #          "   /::\  \       /::\  \       /:/  /    /::\  \       /::\  \       /::\  \    ",
+    #          "  /:/\:\  \     /:/\:\  \     /:/  /    /:/\:\  \     /:/\:\  \     /:/\:\  \   ",
+    #          " /:/  \:\  \   /::\~\:\  \   /:/  /    /::\~\:\  \   /:/  \:\  \   /::\~\:\  \  ",
+    #          "/:/__/_\:\__\ /:/\:\ \:\__\ /:/__/    /:/\:\ \:\__\ /:/__/_\:\__\ /:/\:\ \:\__\ ",
+    #          "\:\  /\ \/__/ \/__\:\/:/  / \:\  \    \/__\:\/:/  / \:\  /\ \/__/ \/__\:\/:/  / ",
+    #          " \:\ \:\__\        \::/  /   \:\  \        \::/  /   \:\ \:\__\        \::/  /  ",
+    #          "  \:\/:/  /        /:/  /     \:\  \       /:/  /     \:\/:/  /        /:/  /   ",
+    #          "   \::/  /        /:/  /       \:\__\     /:/  /       \::/  /        /:/  /    ",
+    #          "    \/__/         \/__/         \/__/     \/__/         \/__/         \/__/     "]
+
+    title_g = """     ___     
+    /\  \     
+   /::\  \    
+  /:/\:\  \   
+ /:/  \:\  \  
+/:/__/_\:\__\ 
+\:\  /\ \/__/ 
+ \:\ \:\__\   
+  \:\/:/  /   
+   \::/  /    
+    \/__/     """
+    layout_g = layout(title_g)
+    title_a = """     ___     
+    /\  \     
+   /::\  \    
+  /:/\:\  \   
+ /::\~\:\  \  
+/:/\:\ \:\__\ 
+\/__\:\/:/  / 
+     \::/  /  
+     /:/  /   
+    /:/  /    
+    \/__/     """
+    layout_a = layout(title_a)
+    title_l = """     ___ 
+    /\__\ 
+   /:/  / 
+  /:/  /  
+ /:/  /   
+/:/__/    
+\:\  \    
+ \:\  \   
+  \:\  \  
+   \:\__\ 
+    \/__/ """
+    layout_l = layout(title_l)
+    
+    dimensions = vec2(80, 14)
     top_left = vec2(curses.COLS, curses.LINES).substr(dimensions).calc_divide(2).calc_to_int()
 
-    for index in range(dimensions.y):
-        stdscr.addstr(top_left.y + index, top_left.x, title[index])
+    stdscr.addstr(top_left.y - 1, top_left.x, "                   Yapheth Stephan Nathaniel's re-enacment of                   ")
+    layout_g.draw_at(stdscr, top_left.y + 1 + round(math.sin(5*time.time() + 3.1415926535 * 0/6)), top_left.x + 0 )
+    layout_a.draw_at(stdscr, top_left.y + 1 + round(math.sin(5*time.time() + 3.1415926535 * 1/6)), top_left.x + 14)
+    layout_l.draw_at(stdscr, top_left.y + 1 + round(math.sin(5*time.time() + 3.1415926535 * 2/6)), top_left.x + 28)
+    layout_a.draw_at(stdscr, top_left.y + 1 + round(math.sin(5*time.time() + 3.1415926535 * 3/6)), top_left.x + 38)
+    layout_g.draw_at(stdscr, top_left.y + 1 + round(math.sin(5*time.time() + 3.1415926535 * 4/6)), top_left.x + 52)
+    layout_a.draw_at(stdscr, top_left.y + 1 + round(math.sin(5*time.time() + 3.1415926535 * 5/6)), top_left.x + 66)
 
-    if (time.time()*1000)%1000 < 500:
+    # for index in range(dimensions.y):
+    #     stdscr.addstr(top_left.y + index, top_left.x, title[index])
+
+    if (time.time()*500)%1000 < 800:
         stdscr.addstr(top_left.y + dimensions.y, top_left.x + dimensions.x//2 - 10, "Press SPACE To Start")
 
 def draw_hud(stdscr):
@@ -659,13 +783,14 @@ def draw_hud(stdscr):
 
     stdscr.addstr(curses.LINES - 3, curses.COLS - 45, "REMAINING HEALTH:")
 
-    ascii_art = """ _ _ _ _ _ _ _ _ _ _ _
+    if time.time()*20%10 < 5 or player.health > 3:
+        ascii_art = """ _ _ _ _ _ _ _ _ _ _ _
 /"""
 # /_/_/_/_/_/_/_/_/_ _ _ /"""
-    ascii_art += "_/" * player.health + "_ " *  min(10 - player.health, 10) + "_/"
-    health_hud_layout = layout(ascii_art)
-    # print(ascii_art)
-    health_hud_layout.draw_at(stdscr, curses.LINES - 4, curses.COLS - 26)
+        ascii_art += "_/" * player.health + "_ " *  min(10 - player.health, 10) + "_/"
+        health_hud_layout = layout(ascii_art)
+        # print(ascii_art)
+        health_hud_layout.draw_at(stdscr, curses.LINES - 4, curses.COLS - 26)
 
 def draw_entities_from_buffer(stdscr):
     for entity in entity_buffer:
