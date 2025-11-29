@@ -1,2 +1,2 @@
-import pynput
-print(pynput.keyboard.Key.up.name)
+for i in range(31):
+    print(i)

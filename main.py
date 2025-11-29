@@ -4,14 +4,10 @@ import pyaudio
 import numpy
 import math
 import time
-import curses
-import pynput
 from enum import Enum
 import random
-import string   
-import pyaudio
+import string
 import soundfile
-import numpy
 import sys
 import signal
 
@@ -131,10 +127,10 @@ entity_buffer = []
 
 class Entity:
     texture = ""
-    texture_dimensions = vec2(0, 0)
+    texture_dimensions = vec2(-10, -10)
     # avoid creating a shared mutable vec2 at class level
     # each Entity should have its own `position` instance
-    position = None
+    position = vec2(-10, -10)
     state_tick = 0
     bulletproof = True
     identification = ""
@@ -150,13 +146,24 @@ class Entity:
         entity_buffer.append(self)
     
     def is_colliding(self, other_entity):
-        x_min_distance = (other_entity.texture_dimensions.x + self.texture_dimensions.x)/2
-        y_min_distance = (other_entity.texture_dimensions.y + self.texture_dimensions.y)/2
+        x_min_distance = (other_entity.layout.dimensions.x + self.layout.dimensions.x)/2
+        y_min_distance = (other_entity.layout.dimensions.y + self.layout.dimensions.y)/2
         x_distance = other_entity.position.x - self.position.x
         y_distance = other_entity.position.y - self.position.y
 
         if x_min_distance >= abs(x_distance) and y_min_distance >= abs(y_distance):
             return True
+
+# _ /\ _
+# \.*.*/
+# /_/\_\ 
+class Explosion(Entity):
+    texture ="""_ /\ _
+\.*.*/
+/_/\_\ """
+    bulletproof = True
+    state_tick = 30
+
 #    ^
 #  |/.\|
 # |/_^_\|
@@ -167,6 +174,10 @@ class Starfighter(Entity):
     texture_dimensions = vec2(7, 3)
     bulletproof = False
     health = 10
+    spares_left = 2
+    target_position = vec2(-10, -10)
+    player_control = 0               # -1 for player 1 and 1 for player 2 | Allows recovered fighters to automatically move 
+    recoil = 0
 
 class Bullet(Entity):
     texture = """|""" 
@@ -326,6 +337,20 @@ class Motherbeam(Entity):
     texture_dimensions = vec2(13, 5)
     penetration = 1
 
+#   _ _  
+# |\ U /|
+#  |\"/| 
+#    v   
+class Captured(Enemy):
+    texture = """  _ _  
+|\ U /|
+ |\"/| 
+   v   """
+    texture_dimensions = vec2(7, 4)
+    bulletproof = False
+    punya_mothership_yang_mana = "idk ga ada sih"
+    health = 4
+
 debug_message = ""
 
 # gameplay_song = simpleaudio.WaveObject.from_wave_file('Mozart_-_Eine_kleine_Nachtmusik_-_1._Allegro.wav')
@@ -430,7 +455,11 @@ key_down = {
     "right": False,
     "space": False,
     "enter": False,
-    "p": False
+    "p": False,
+    "w": False,
+    "a": False,
+    "s": False,
+    "d": False
 }
 key_just_down = {
     "ctrl_l": False,
@@ -440,7 +469,11 @@ key_just_down = {
     "right": False,
     "space": False,
     "enter": False,
-    "p": False
+    "p": False,
+    "w": False,
+    "a": False,
+    "s": False,
+    "d": False
 }
 last_keydown = False
 last_go_right = False
@@ -449,20 +482,24 @@ key_just_down_buffer = []
 key_bindings = {
     "player_1_left": "a",
     "player_1_right": "d",
-    "player_1_shoot": "w"
+    "player_1_shoot": "w",
+    "player_2_left": "left",
+    "player_2_right": "right",
+    "player_2_shoot": "up",
 }
 
 def handle_keydown(key, is_injected):
     global key_down
     global last_keydown
+    global key_just_down
     global debug_message
     
     if isinstance(key, pynput.keyboard.Key):
         last_keydown = key.name
     else:
-        last_keydown = key
+        last_keydown = key.char
 
-    debug_message = f"last recorded key name {last_keydown}"
+    # debug_message = f"last recorded key name {last_keydown}"
 
     if last_keydown in key_down:
         if not key_down[last_keydown]:
@@ -471,6 +508,22 @@ def handle_keydown(key, is_injected):
     else:
         key_just_down[last_keydown] = True
     key_down[last_keydown] = True
+    
+    # print(key_down)
+
+    if last_keydown == "esc":
+        quit_game("signum", "frame")
+
+def handle_keyup(key, is_rejected):
+    key_released = ""
+    
+    if isinstance(key, pynput.keyboard.Key):
+        key_released = key.name
+    else:
+        key_released = key.char
+
+    key_down[key_released] = False
+    return True
 
 def buffer_key_just_down():
     global key_just_down_buffer
@@ -480,21 +533,10 @@ def buffer_key_just_down():
 
 def release_key_just_down():
     global debug_message
-    # debug_message = f"is up just down {key_just_down['up']}"
+    debug_message = f"is up just down {key_just_down['up']}"
 
     for key in key_just_down.keys():
         key_just_down[key] = False
-
-def handle_keyup(key, is_rejected):
-    key_released = ""
-    
-    if isinstance(key, pynput.keyboard.Key):
-        key_released = key.name
-    else:
-        key_released = key
-
-    key_down[key_released] = False
-    return True
 
 keystroke_handler = pynput.keyboard.Listener(
     on_press=handle_keydown,
@@ -504,67 +546,62 @@ keystroke_handler.daemon = True
 keystroke_handler.start()
 
 class Gamemodes():
+    HAVE_YET_TO_CHOOSE = -1
     SINGLE_PLAYER = 0
     TWO_PLAYER = 1
-
-selected_gamemode = Gamemodes.SINGLE_PLAYER
-
-player = Starfighter(curses.COLS // 2 - 1, curses.LINES - 8)
-player.identification = "single"
-player.layout.set_visibility(False)
-player.bulletproof = True
-
-two_player_1 = Starfighter(curses.COLS // 2 - 1, curses.LINES - 8)
-two_player_1.identification = "double_1"
-two_player_1.layout.set_visibility(False)
-two_player_1.bulletproof = True
-
-two_player_2 = Starfighter(curses.COLS // 2 - 1, curses.LINES - 8)
-two_player_2.identification = "double_2"
-two_player_2.layout.set_visibility(False)
-two_player_2.bulletproof = True
+selected_gamemode = Gamemodes.HAVE_YET_TO_CHOOSE
+ko_wilbert_mode = False
 
 class Scene(Enum):
     START = "start scene"
     PLAY = "play scene"
+    DIED = "player(s) have expired"
 current_scene = Scene.START
 
-def handle_player():
-    global player
+player_pool = []
 
-    if player.health > 0:
-        control_player()
-    else:
-        player.layout.layer_visibility[0] = False
-        player.layout.layer_visibility[1] = False
-        player.layout.layer_visibility[2] = False
+def handle_player_shoot(player):
+    x_pos = player.position.x + 0.5
+    y_pos = round(player.position.y - 1)
 
-recoil = 0
-def control_player():
-    global recoil
-    global player
+    new_bullet = Bullet(x_pos, y_pos)
+    new_bullet.pointing_up = True
+    new_bullet.identification = "b214"
+
+    player.recoil = 3
+
+def handle_player(player):
+    global key_down
+    global key_just_down
+
     player_speed = vec2(1, 0.5)
+    already_moved = False
 
-    # if key_down['up']:
-    #     player.position.y -= player_speed.y
-    # if key_down['down']:
-    #     player.position.y += player_speed.y
-    if key_down['right']:
-        player.position.x += player_speed.x
-    if key_down['left']:
-        player.position.x -= player_speed.x
-        
-    if recoil > 0:
-        recoil -= 1
-    elif key_just_down['up'] or key_just_down['down'] or key_just_down['space']:
-        x_pos = player.position.x + 0.5
-        y_pos = round(player.position.y - 1)
- 
-        new_bullet = Bullet(x_pos, y_pos)
-        new_bullet.pointing_up = True
-        new_bullet.identification = "b214"
+    global debug_message
+    
+    player.recoil = max(player.recoil - 1, 0)
 
-        recoil = 3
+    if not player.player_control == 1:
+        if key_down[key_bindings['player_1_right']]:
+            player.target_position.add(vec2(player_speed.x, 0))
+            already_moved = True
+        if key_down[key_bindings['player_1_left']]:
+            player.target_position.substr(vec2(player_speed.x, 0))
+            already_moved = True
+        if key_just_down[key_bindings['player_1_shoot']] and player.recoil == 0:
+            handle_player_shoot(player)
+            already_moved = True
+
+    if not player.player_control == -1 and not already_moved:
+        if key_down[key_bindings['player_2_right']]:
+            player.target_position.add(vec2(player_speed.x, 0))
+        if key_down[key_bindings['player_2_left']]:
+            player.target_position.substr(vec2(player_speed.x, 0))
+        if key_just_down[key_bindings['player_2_shoot']] and player.recoil == 0:
+            handle_player_shoot(player)
+
+    player.position.add(player.target_position.calc_substr(player.position))
+    debug_message = f"{player.position}"
 
 def simulate_bullet(bullet):
     global entity_buffer
@@ -609,17 +646,21 @@ if six_inaccuracy == chosen_inaccuracy:
 if five_inaccuracy == chosen_inaccuracy:
     spacing = 5
 
-# debug_message = f"chosen spacing {spacing} number of minions to dance {math.floor((curses.COLS + 10)%spacing - 5)}"
-
+# debug_message = f"chosen spacing {spacing} number of minions to dance {math.floor((curses.COLS + 10)/spacing)}"
 for i in range(math.floor((curses.COLS + 10)/spacing)):
     new_minion = Minion()
-    new_minion.stage_offset = vec2(i * spacing, 0)
+    new_minion.identification = f"dancer_{i}"
+    new_minion.stage_offset = vec2((i - 1) * spacing, 0)
     new_minion.health = 0
+
 
 def handle_enemies(current_enemy):
     global debug_message
     global current_scene
-    global player
+    
+    global player_pool
+    global entity_buffer
+
     # current_enemy.position = vec2(0.0006527415143603133, 0.6771488469601677).multiply(vec2(curses.COLS, curses.LINES))
     # debug_message = f"x: {current_enemy.position.x} y: {current_enemy.position.y}"
 
@@ -680,6 +721,9 @@ def handle_enemies(current_enemy):
             minion_bullet = Bullet(current_enemy.position.x, current_enemy.position.y + 2)
             minion_bullet.pointing_up = False
     elif isinstance(current_enemy, Butterflu):
+        # do not spawn butterflu with the ability to attack when there are no players
+        player = entity_buffer[player_pool[random.randint(0, len(player_pool) - 1)]]
+
         if current_enemy.enemy_behavior == EnemyBehavior.GOING_TO_LINE and random.random() < 0.001 and player.health > 0:
             unit_delta = player.position.calc_substr(current_enemy.position)
             unit_delta.divide(unit_delta.length())
@@ -691,15 +735,15 @@ def handle_enemies(current_enemy):
         if current_enemy.enemy_behavior == EnemyBehavior.ATTACKING:
             current_enemy.position.add(current_enemy.charge_direction)
             
+
             if current_enemy.is_colliding(player) and player.health > 0:
                 player.health -= 3
                 current_enemy.health = 0
             
-            if current_enemy.position.y > curses.LINES + current_enemy.texture_dimensions.y:
+            if current_enemy.position.y > curses.LINES + current_enemy.layout.dimensions.y:
                 current_enemy.position = vec2(curses.COLS/2, -3)
                 current_enemy.attack_delay = 180
-                current_enemy.enemy_behavior = EnemyBehavior.GOING_TO_LINE
-                
+                current_enemy.enemy_behavior = EnemyBehavior.GOING_TO_LINE                
 
 minion_spawn_delay = 0
 minion_spawn_path = PathIndex['STAGE_1_MINION_LEFT']
@@ -852,7 +896,7 @@ menu_data = {
                 "ko_wilbert": "INVINCIBILITY",
                 "key_bindings": "KEY BINDINGS"
             },
-            "option_indicies": [
+            "option_list": [
                 "back_to_start",
                 "volume",
                 "ko_wilbert",
@@ -885,29 +929,66 @@ def welcome_menu_logic():
     global menu_data
     global debug_message
 
+    global stage_start_time
+    global current_scene
+    global selected_gamemode
+    global player_pool
+    global entity_buffer
+
+    option_length = len(menu_data['options'][menu_data['current_menu'].value]['option_list'])
+    # debug_message = f"is up down: {key_just_down['up']}"
+    if key_just_down['up']:
+        menu_data['selected_option'] = (menu_data['selected_option'] - 1)%option_length
+    if key_just_down['down']:
+        menu_data['selected_option'] = (menu_data['selected_option'] + 1)%option_length
+            
     if key_just_down['space']:
         if menu_data['selected_option'] == menu_data['options']['welcome']['option_indicies']['single_player']:
             # debug_message = f"single player option {menu_data['options']['welcome']['option_indicies']['single_player']} casw {single_player_option}"
 
-            global stage_start_time
             stage_start_time = time.time()
-        
-            global current_scene
             current_scene = Scene.PLAY
+            selected_gamemode = Gamemodes.SINGLE_PLAYER
             
             play_song(song_indicies['first_life'])
             menu_data['current_menu'] = Menus.HIDDEN
             
-            global player
+            player_pool.append(len(entity_buffer))
+            # debug_message = f"player made at index {player_pool[-1]}"
+            player = Starfighter()
+            player.target_position = vec2(curses.COLS // 2 - 1, curses.LINES - 8)
+            player.identification = "single"
             player.layout.set_visibility(True)
-            player.bulletproof = False
+            player.bulletproof = ko_wilbert_mode
+        
+        if menu_data['selected_option'] == menu_data['options']['welcome']['option_indicies']['two_player']:
+            stage_start_time = time.time()
+            current_scene = Scene.PLAY
+            selected_gamemode = Gamemodes.TWO_PLAYER
+             
+            play_song(song_indicies['first_life'])
+            menu_data['current_menu'] = Menus.HIDDEN
+            
+            player_pool.append(len(entity_buffer))
+            two_player_1 = Starfighter()
+            two_player_1.target_position = vec2(curses.COLS // 2 + 7, curses.LINES - 8)
+            two_player_1.identification = "double_1"
+            two_player_1.layout.set_visibility(True)
+            two_player_1.bulletproof = ko_wilbert_mode
+            
+            player_pool.append(len(entity_buffer))
+            two_player_2 = Starfighter()
+            two_player_2.target_position = vec2(curses.COLS // 2 - 7, curses.LINES - 8)
+            two_player_2.identification = "double_2"
+            two_player_2.layout.set_visibility(True)
+            two_player_2.bulletproof = ko_wilbert_mode
         
         if menu_data['selected_option'] == menu_data['options']['welcome']['option_indicies']['settings']:
-            menu_data['selected_option'] = Menus.SETTINGS
+            menu_data['current_menu'] = Menus.SETTINGS
+            menu_data['selected_option'] = 0
 
         if menu_data['selected_option'] == menu_data['options']['welcome']['option_indicies']['exit_game']:
             quit_game("signum", "frame")
-
 
 class SettingsSelection (Enum):
     NONE = -1
@@ -915,45 +996,101 @@ class SettingsSelection (Enum):
     KEY_BINDINGS = 1
 selected_setting = SettingsSelection.NONE
 
-def menu_logic():
+def settings_menu_logic():
+    global debug_message
     global menu_data
+    option_indicies = menu_data['options']['settings']['option_indicies']
+    global selected_setting
 
-    if not menu_data['current_menu'] == Menus.HIDDEN:
+    # debug_message = f"setting_mode {selected_setting} as of {round(time.time())}"
+
+    if selected_setting == SettingsSelection.NONE:
         option_length = len(menu_data['options'][menu_data['current_menu'].value]['option_list'])
         # debug_message = f"is up down: {key_just_down['up']}"
         if key_just_down['up']:
             menu_data['selected_option'] = (menu_data['selected_option'] - 1)%option_length
         if key_just_down['down']:
             menu_data['selected_option'] = (menu_data['selected_option'] + 1)%option_length
+    elif selected_setting == SettingsSelection.VOLUME:
+        global master_volume
+
+        if key_just_down['up'] or key_just_down['right']:
+            master_volume += 0.02
+        if key_just_down['down'] or key_just_down['left']:
+            master_volume -= 0.02
+
+        master_volume = max(0, min(1, master_volume))
+
+
+    # debug_message = f"did it select volume {menu_data['selected_option'] == option_indicies['volume']}"
+
+    if key_just_down['space']:
+        if selected_setting == SettingsSelection.NONE:
+                # "back_to_start": 0,
+                # "volume": 1,
+                # "ko_wilbert": 2,
+                # "key_bindings": 3
+
+            if menu_data['selected_option'] == option_indicies['back_to_start']:
+                menu_data['current_menu'] = Menus.WELCOME
+            if menu_data['selected_option'] == option_indicies['volume']:
+                selected_setting = SettingsSelection.VOLUME
+            if menu_data['selected_option'] == option_indicies['ko_wilbert']:
+                global ko_wilbert_mode
+                ko_wilbert_mode = not ko_wilbert_mode
+            if menu_data['selected_option'] == option_indicies['key_bindings']:
+                selected_setting = SettingsSelection.KEY_BINDINGS
+
+        elif selected_setting == SettingsSelection.VOLUME:
+            selected_setting = SettingsSelection.NONE
+
+def menu_logic():
+    global menu_data
+    global debug_message
     
     global current_scene
     if menu_data['current_menu'] == Menus.HIDDEN and current_scene == Scene.PLAY and key_just_down['p']:
         global paused
         paused = not paused
     
+    # debug_message = f"current menu {menu_data['current_menu'].name}"
+    
     if menu_data['current_menu'] == Menus.WELCOME:
         welcome_menu_logic()
-
+    elif menu_data['current_menu'] == Menus.SETTINGS:
+        settings_menu_logic()
 
 def tick(stdscr):
     global current_scene
     global entity_buffer
+    global player_pool
 
     menu_logic()
 
     if current_scene == Scene.PLAY and not paused:
-        handle_player()
-        
         max_index = len(entity_buffer)
-        current_index = 1
+        current_index = 0
         while current_index < max_index:
             thing = entity_buffer[current_index]
             
             if thing.health <= 0:
+                for player_pool_index in range(len(player_pool) - 1, -1, -1):
+                    if player_pool[player_pool_index] > current_index:
+                        player_pool[player_pool_index] -= 1
+                        continue
+                    
+                    if player_pool[player_pool_index] == current_index:
+                        player_pool.pop(player_pool_index)
+                    
+                    break
+
                 entity_buffer.pop(current_index)
                 max_index -= 1 
                 current_index -= 1
                 continue
+
+            if isinstance(thing, Starfighter):
+                handle_player(thing)
 
             if isinstance(thing, Bullet):
                 simulate_bullet(thing)
@@ -967,7 +1104,7 @@ def tick(stdscr):
 
     if current_scene == Scene.START:
         max_index = len(entity_buffer)
-        current_index = 1
+        current_index = 0
         while current_index < max_index:
             thing = entity_buffer[current_index]
             # The health bit is missing so that I can set the dancer's health to zero so they die immediately once the game starts
@@ -1043,13 +1180,11 @@ single_player_option_icon = layout("""   ^
 |/_^_\|""")
 two_player_option_icon = layout("""   ^       ^   
  |/.\|   |/.\| 
-|/_^_\| |/_^_\|
-Just kidding, we can't do that""")
+|/_^_\| |/_^_\|""")
 settings_option_icon = layout("""  C
  /
 / this is a wrench for settings
 """)
-
 exit_game_option_icon = layout("""  _ _ 
  |   |
 <-   |
@@ -1102,7 +1237,6 @@ def draw_start_menu(stdscr):
 
         settings_option_icon.draw_at(stdscr, draw_at_vec.y, draw_at_vec.x)
 
-    
     if menu_data['selected_option'] == option_data['option_indicies']['exit_game']:
         global exit_game_option_icon
 
@@ -1131,16 +1265,32 @@ def draw_settings_menu(stdscr):
         else:
             stdscr.addstr(top_left.y + dimensions.y + index, top_left.x + dimensions.x//2 - 8, option_data['option_text'][option])
 
+# [||||||||||||||||||||]
     if menu_data['selected_option'] == option_data['option_indicies']['volume']:
-        global single_player_option_icon
+        global master_volume
+        no_of_lines = round(master_volume*20)
+        global selected_setting
+        if selected_setting == SettingsSelection.VOLUME:
+            stdscr.addstr(curses.LINES - 8, curses.COLS // 2 - 15, f"{round(master_volume * 100)}% [" + "|" * no_of_lines + " " * (20 - no_of_lines) + "]", curses.A_STANDOUT)
+        else:
+            stdscr.addstr(curses.LINES - 8, curses.COLS // 2 - 15, f"{round(master_volume * 100)}% [" + "|" * no_of_lines + " " * (20 - no_of_lines) + "]")
 
-        draw_at_vec = vec2(curses.COLS // 2 - 1, curses.LINES - 8)
-        
-        draw_at_vec.substr(single_player_option_icon.dimensions.calc_divide(2)) # } by {single_player_option_icon.dimensions} expected {vec2(len(single_player_option_icon.source_array[0]), len(single_player_option_icon.source_array))}"
-        draw_at_vec.to_int()
 
-        single_player_option_icon.draw_at(stdscr, draw_at_vec.y, draw_at_vec.x)
+    if menu_data['selected_option'] == option_data['option_indicies']['ko_wilbert']:
+        global ko_wilbert_mode
+        if ko_wilbert_mode:
+            stdscr.addstr(curses.LINES - 8, curses.COLS // 2 - 3, "ACTIVE")
+        else:
+            stdscr.addstr(curses.LINES - 8, curses.COLS // 2 - 4, "INACTIVE")
 
+def draw_youdied_menu(stdscr):
+    title_layout = layout("""_____.___.________   ____ ___  ________  .______________________   
+\__  |   |\_____  \ |    |   \ \______ \ |   \_   _____/\______ \   
+ /   |   | /   |   \|    |   /  |    |  \|   ||    __)_  |    |  \  
+ \____   |/    |    \    |  /   |    `   \   ||        \ |    `   \ 
+ / ______|\_______  /______/   /_______  /___/_______  //_______  / 
+ \/               \/                   \/            \/         \/  """)
+    
 
 def draw_menu(stdscr):
     global menu_data
@@ -1152,36 +1302,42 @@ def draw_menu(stdscr):
     if menu_data['current_menu'] == Menus.SETTINGS:
         draw_settings_menu(stdscr)
 
-def draw_gameplay_hud(stdscr):
-    global player
+{
+    # def draw_gameplay_hud(stdscr):
+    #     global player
 
-    stdscr.addstr(curses.LINES - 3, curses.COLS - 45, "REMAINING HEALTH:")
+    #     stdscr.addstr(curses.LINES - 3, curses.COLS - 45, "REMAINING HEALTH:")
 
-    if time.time()*20%10 < 5 or player.health > 3:
-        ascii_art = """ _ _ _ _ _ _ _ _ _ _ _
-/"""
-# /_/_/_/_/_/_/_/_/_ _ _ /"""
-        ascii_art += "_/" * player.health + "_ " *  min(10 - player.health, 10) + "_/"
-        health_hud_layout = layout(ascii_art)
-        # print(ascii_art)
-        health_hud_layout.draw_at(stdscr, curses.LINES - 4, curses.COLS - 26)
+    #     if time.time()*20%10 < 5 or player.health > 3:
+    #         ascii_art = """ _ _ _ _ _ _ _ _ _ _ _
+    # /"""
+    # # /_/_/_/_/_/_/_/_/_ _ _ /"""
+    #         ascii_art += "_/" * player.health + "_ " *  min(10 - player.health, 10) + "_/"
+    #         health_hud_layout = layout(ascii_art)
+    #         # print(ascii_art)
+    #         health_hud_layout.draw_at(stdscr, curses.LINES - 4, curses.COLS - 26)
+}
 
 def draw_entities_from_buffer(stdscr):
     for entity in entity_buffer:
     #     if entity.identification == "m0n3r":
     #         debug_message = f"monster x: {entity.position.x}"
 
-        top_left_x = entity.position.x - entity.texture_dimensions.x / 2
-        top_left_y = entity.position.y - entity.texture_dimensions.y / 2
+        top_left_x = entity.position.x - entity.layout.dimensions.x / 2
+        top_left_y = entity.position.y - entity.layout.dimensions.y / 2
         
         entity.layout.draw_at(stdscr, round(top_left_y), round(top_left_x))
+
+        health_between_height_bounds = round(top_left_y) + entity.layout.dimensions.y >= 0 and round(top_left_y) + entity.layout.dimensions.y < curses.LINES
+        health_between_width_bounds = round(entity.position.x - entity.health / 2) >= 0 and math.ceil(entity.position.x + entity.health / 2) < curses.COLS
+        if health_between_height_bounds and health_between_width_bounds:
+            stdscr.addstr(round(top_left_y) + entity.layout.dimensions.y, round(entity.position.x - entity.health / 2), "." * entity.health)
 
 def render(stdscr):
     stdscr.clear()
 
     draw_entities_from_buffer(stdscr)
 
-    global player
     # bullet_id = ""
     # if len(bullets_buffer) > 0:
     #     bullet_id = f"bullet identification: {bullets_buffer[0].identification}"
@@ -1191,8 +1347,6 @@ def render(stdscr):
     global current_scene
     if current_scene == Scene.START:
         draw_start_title(stdscr)
-    if current_scene == Scene.PLAY:
-        draw_gameplay_hud(stdscr)
 
     draw_menu(stdscr)
     
@@ -1200,13 +1354,16 @@ def render(stdscr):
 
     stdscr.refresh()
 
-
 def main(stdscr):
     global debug_message
 
     stdscr.clear()
     stdscr.keypad(True)
     stdscr.nodelay(True)
+
+    stdscr.addstr("wdwd")
+
+    stdscr.getch()
 
     while True:
         prev_time = time.time()
