@@ -533,7 +533,7 @@ def buffer_key_just_down():
 
 def release_key_just_down():
     global debug_message
-    debug_message = f"is up just down {key_just_down['up']}"
+    # debug_message = f"is up just down {key_just_down['up']}"
 
     for key in key_just_down.keys():
         key_just_down[key] = False
@@ -601,7 +601,7 @@ def handle_player(player):
             handle_player_shoot(player)
 
     player.position.add(player.target_position.calc_substr(player.position))
-    debug_message = f"{player.position}"
+    # debug_message = f"{player.position}"
 
 def simulate_bullet(bullet):
     global entity_buffer
@@ -721,29 +721,39 @@ def handle_enemies(current_enemy):
             minion_bullet = Bullet(current_enemy.position.x, current_enemy.position.y + 2)
             minion_bullet.pointing_up = False
     elif isinstance(current_enemy, Butterflu):
-        # do not spawn butterflu with the ability to attack when there are no players
-        player = entity_buffer[player_pool[random.randint(0, len(player_pool) - 1)]]
 
-        if current_enemy.enemy_behavior == EnemyBehavior.GOING_TO_LINE and random.random() < 0.001 and player.health > 0:
+        if current_enemy.enemy_behavior == EnemyBehavior.GOING_TO_LINE and random.random() < 0.001 and len(player_pool) > 0:
+            player = entity_buffer[player_pool[random.randint(0, len(player_pool) - 1)]]
+            
             unit_delta = player.position.calc_substr(current_enemy.position)
             unit_delta.divide(unit_delta.length())
             
             current_enemy.charge_direction = unit_delta
             current_enemy.enemy_behavior = EnemyBehavior.ATTACKING
-            # debug_message = f"enemy {current_enemy.identification} is charging at player"
+            # debug_message = f"enemy {current_enemy.identification} is charging at player at direction {unit_delta}"
         
         if current_enemy.enemy_behavior == EnemyBehavior.ATTACKING:
             current_enemy.position.add(current_enemy.charge_direction)
-            
 
-            if current_enemy.is_colliding(player) and player.health > 0:
-                player.health -= 3
-                current_enemy.health = 0
-            
             if current_enemy.position.y > curses.LINES + current_enemy.layout.dimensions.y:
                 current_enemy.position = vec2(curses.COLS/2, -3)
                 current_enemy.attack_delay = 180
-                current_enemy.enemy_behavior = EnemyBehavior.GOING_TO_LINE                
+                current_enemy.enemy_behavior = EnemyBehavior.GOING_TO_LINE
+            
+            if len(player_pool) > 0:
+                player = "not collided"
+
+                for player_index in player_pool:
+                    a_player = entity_buffer[player_index]
+
+                    if not a_player.bulletproof and current_enemy.is_colliding(a_player):
+                        player = a_player
+                        # f"enemy {current_enemy.identification} has collided with player {player.identification}"
+
+                if not player == "not collided":
+                    player.health -= 3
+                    current_enemy.health = 0
+            
 
 minion_spawn_delay = 0
 minion_spawn_path = PathIndex['STAGE_1_MINION_LEFT']
