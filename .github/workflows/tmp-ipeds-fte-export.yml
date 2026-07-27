@@ -6,12 +6,14 @@ on:
       - '.github/workflows/tmp-ipeds-fte-export.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   export:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Build named IPEDS FTE table
         shell: bash
         run: |
@@ -43,7 +45,7 @@ jobs:
                       'unduplicated_headcount': row['UNDUP'],
                   })
 
-          with open('ipeds_fte_2024_named.csv', 'w', encoding='utf-8', newline='') as f:
+          with open('tmp_ipeds_fte_2024_named.csv', 'w', encoding='utf-8', newline='') as f:
               writer = csv.DictWriter(f, fieldnames=[
                   'unitid', 'institution_name', 'city', 'state',
                   'fte12mn', 'unduplicated_headcount'
@@ -54,9 +56,11 @@ jobs:
           print(f'Wrote {len(output)} rows')
           PY
 
-      - name: Upload named FTE table
-        uses: actions/upload-artifact@v4
-        with:
-          name: ipeds-fte-2024-named
-          path: ipeds_fte_2024_named.csv
-          retention-days: 1
+      - name: Commit temporary extract
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tmp_ipeds_fte_2024_named.csv
+          git commit -m 'Add temporary IPEDS FTE extract'
+          git push
