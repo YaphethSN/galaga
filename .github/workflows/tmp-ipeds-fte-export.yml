@@ -43,9 +43,21 @@ jobs:
               normalize('Binghamton University—SUNY'): normalize('Binghamton University'),
           }
 
+          unitid_overrides = {
+              'University of Washington': ('236948', 'University of Washington-Seattle Campus'),
+              'University of Pittsburgh': ('215293', 'University of Pittsburgh-Pittsburgh Campus'),
+              'Columbia University': ('190150', 'Columbia University in the City of New York'),
+              'University of Virginia': ('234076', 'University of Virginia-Main Campus'),
+              'North Carolina State University': ('199193', 'North Carolina State University at Raleigh'),
+              'Virginia Tech': ('233921', 'Virginia Polytechnic Institute and State University'),
+              'California Institute of Technology': ('110404', 'California Institute of Technology'),
+          }
+
           rows = []
+          by_unitid = {}
           with open('tmp_ipeds_fte_2024_named.csv', encoding='utf-8-sig', newline='') as f:
               for row in csv.DictReader(f):
+                  by_unitid[row['unitid']] = row
                   if row['institution_name'] and row['fte12mn'] not in ('', '.', '-1', '-2', '-3'):
                       row['_norm'] = normalize(row['institution_name'])
                       rows.append(row)
@@ -60,37 +72,41 @@ jobs:
               targets = list(csv.DictReader(f))
 
           for target in targets:
-              original_norm = normalize(target['institution'])
-              wanted_norm = aliases.get(original_norm, original_norm)
-              candidates = by_norm.get(wanted_norm, [])
-              match_type = 'Exact normalized name'
-              score = 1.0
+              institution = target['institution']
+              matched = None
+              alternatives = ''
 
-              if not candidates:
-                  best = difflib.get_close_matches(wanted_norm, norms, n=3, cutoff=0.55)
-                  if not best:
-                      matched = None
-                      alternatives = ''
-                      score = 0.0
-                      match_type = 'Unmatched'
-                  else:
-                      best_norm = best[0]
-                      candidates = by_norm[best_norm]
-                      matched = candidates[0]
-                      score = difflib.SequenceMatcher(None, wanted_norm, best_norm).ratio()
-                      alternatives = ' | '.join(
-                          f"{by_norm[n][0]['institution_name']} ({difflib.SequenceMatcher(None, wanted_norm, n).ratio():.3f})"
-                          for n in best
-                      )
-                      match_type = 'Fuzzy name match'
+              if institution in unitid_overrides:
+                  unitid, canonical = unitid_overrides[institution]
+                  matched = dict(by_unitid[unitid])
+                  matched['institution_name'] = canonical
+                  match_type = 'Verified UNITID override'
+                  score = 1.0
               else:
-                  matched = candidates[0]
-                  alternatives = ''
-                  if wanted_norm != original_norm:
-                      match_type = 'Manual alias'
+                  original_norm = normalize(institution)
+                  wanted_norm = aliases.get(original_norm, original_norm)
+                  candidates = by_norm.get(wanted_norm, [])
+                  match_type = 'Exact normalized name'
+                  score = 1.0
 
-              if candidates and 'matched' not in locals():
-                  matched = candidates[0]
+                  if candidates:
+                      matched = candidates[0]
+                      if wanted_norm != original_norm:
+                          match_type = 'Manual alias'
+                  else:
+                      best = difflib.get_close_matches(wanted_norm, norms, n=3, cutoff=0.55)
+                      if best:
+                          best_norm = best[0]
+                          matched = by_norm[best_norm][0]
+                          score = difflib.SequenceMatcher(None, wanted_norm, best_norm).ratio()
+                          alternatives = ' | '.join(
+                              f"{by_norm[n][0]['institution_name']} ({difflib.SequenceMatcher(None, wanted_norm, n).ratio():.3f})"
+                              for n in best
+                          )
+                          match_type = 'Fuzzy name match'
+                      else:
+                          match_type = 'Unmatched'
+                          score = 0.0
 
               if matched is None:
                   output.append({**target, 'unitid':'', 'ipeds_name':'', 'city':'', 'state':'',
@@ -103,8 +119,6 @@ jobs:
                                  'unduplicated_headcount':matched['unduplicated_headcount'],
                                  'match_type':match_type, 'match_score':score,
                                  'alternatives':alternatives})
-              if 'matched' in locals():
-                  del matched
 
           fields = ['institution','category','herd_rank','rd_thousands','scope_note',
                     'unitid','ipeds_name','city','state','fte12mn','unduplicated_headcount',
@@ -120,11 +134,11 @@ jobs:
               print(r['institution'], '=>', r['ipeds_name'], r['match_score'], r['alternatives'])
           PY
 
-      - name: Commit temporary matched table
+      - name: Commit corrected temporary matched table
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add tmp_rd_per_fte_matches.csv
-          git commit -m 'Add temporary R&D per FTE matches'
+          git commit -m 'Correct temporary R&D per FTE matches'
           git push
