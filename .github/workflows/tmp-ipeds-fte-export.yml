@@ -1,4 +1,4 @@
-name: Temporary IPEDS FTE matching
+name: Temporary IPEDS matched-data split
 
 on:
   push:
@@ -9,136 +9,35 @@ permissions:
   contents: write
 
 jobs:
-  match:
+  split:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Match funding institutions to IPEDS FTE
+      - name: Split matched table
         shell: bash
         run: |
           python - <<'PY'
           import csv
-          import difflib
-          import re
-          import unicodedata
 
-          def normalize(value):
-              value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode()
-              value = value.lower().replace('&', ' and ')
-              value = value.replace('suny', ' ')
-              value = re.sub(r'[^a-z0-9]+', ' ', value)
-              return ' '.join(value.split())
-
-          aliases = {
-              normalize('University of Michigan—Ann Arbor'): normalize('University of Michigan-Ann Arbor'),
-              normalize('University of North Carolina—Chapel Hill'): normalize('University of North Carolina at Chapel Hill'),
-              normalize('The Ohio State University'): normalize('Ohio State University-Main Campus'),
-              normalize('Georgia Institute of Technology'): normalize('Georgia Institute of Technology-Main Campus'),
-              normalize('Texas A&M University'): normalize('Texas A & M University-College Station'),
-              normalize('Pennsylvania State University—University Park'): normalize('Pennsylvania State University-Main Campus'),
-              normalize('University of Texas at Austin'): normalize('The University of Texas at Austin'),
-              normalize('University at Buffalo—SUNY'): normalize('University at Buffalo'),
-              normalize('Stony Brook University—SUNY'): normalize('Stony Brook University'),
-              normalize('Binghamton University—SUNY'): normalize('Binghamton University'),
-          }
-
-          unitid_overrides = {
-              'University of Washington': ('236948', 'University of Washington-Seattle Campus'),
-              'University of Pittsburgh': ('215293', 'University of Pittsburgh-Pittsburgh Campus'),
-              'Columbia University': ('190150', 'Columbia University in the City of New York'),
-              'University of Virginia': ('234076', 'University of Virginia-Main Campus'),
-              'North Carolina State University': ('199193', 'North Carolina State University at Raleigh'),
-              'Virginia Tech': ('233921', 'Virginia Polytechnic Institute and State University'),
-              'California Institute of Technology': ('110404', 'California Institute of Technology'),
-          }
-
-          rows = []
-          by_unitid = {}
-          with open('tmp_ipeds_fte_2024_named.csv', encoding='utf-8-sig', newline='') as f:
-              for row in csv.DictReader(f):
-                  by_unitid[row['unitid']] = row
-                  if row['institution_name'] and row['fte12mn'] not in ('', '.', '-1', '-2', '-3'):
-                      row['_norm'] = normalize(row['institution_name'])
-                      rows.append(row)
-
-          by_norm = {}
-          for row in rows:
-              by_norm.setdefault(row['_norm'], []).append(row)
-          norms = list(by_norm)
-
-          output = []
-          with open('tmp_us_funding_targets.csv', encoding='utf-8-sig', newline='') as f:
-              targets = list(csv.DictReader(f))
-
-          for target in targets:
-              institution = target['institution']
-              matched = None
-              alternatives = ''
-
-              if institution in unitid_overrides:
-                  unitid, canonical = unitid_overrides[institution]
-                  matched = dict(by_unitid[unitid])
-                  matched['institution_name'] = canonical
-                  match_type = 'Verified UNITID override'
-                  score = 1.0
-              else:
-                  original_norm = normalize(institution)
-                  wanted_norm = aliases.get(original_norm, original_norm)
-                  candidates = by_norm.get(wanted_norm, [])
-                  match_type = 'Exact normalized name'
-                  score = 1.0
-
-                  if candidates:
-                      matched = candidates[0]
-                      if wanted_norm != original_norm:
-                          match_type = 'Manual alias'
-                  else:
-                      best = difflib.get_close_matches(wanted_norm, norms, n=3, cutoff=0.55)
-                      if best:
-                          best_norm = best[0]
-                          matched = by_norm[best_norm][0]
-                          score = difflib.SequenceMatcher(None, wanted_norm, best_norm).ratio()
-                          alternatives = ' | '.join(
-                              f"{by_norm[n][0]['institution_name']} ({difflib.SequenceMatcher(None, wanted_norm, n).ratio():.3f})"
-                              for n in best
-                          )
-                          match_type = 'Fuzzy name match'
-                      else:
-                          match_type = 'Unmatched'
-                          score = 0.0
-
-              if matched is None:
-                  output.append({**target, 'unitid':'', 'ipeds_name':'', 'city':'', 'state':'',
-                                 'fte12mn':'', 'unduplicated_headcount':'', 'match_type':match_type,
-                                 'match_score':score, 'alternatives':alternatives})
-              else:
-                  output.append({**target, 'unitid':matched['unitid'],
-                                 'ipeds_name':matched['institution_name'], 'city':matched['city'],
-                                 'state':matched['state'], 'fte12mn':matched['fte12mn'],
-                                 'unduplicated_headcount':matched['unduplicated_headcount'],
-                                 'match_type':match_type, 'match_score':score,
-                                 'alternatives':alternatives})
-
-          fields = ['institution','category','herd_rank','rd_thousands','scope_note',
-                    'unitid','ipeds_name','city','state','fte12mn','unduplicated_headcount',
-                    'match_type','match_score','alternatives']
-          with open('tmp_rd_per_fte_matches.csv', 'w', encoding='utf-8', newline='') as f:
-              writer = csv.DictWriter(f, fieldnames=fields)
-              writer.writeheader()
-              writer.writerows(output)
-
-          low = [r for r in output if not r['fte12mn'] or float(r['match_score']) < 0.90]
-          print(f'Matched {len(output)-len(low)} high-confidence rows; {len(low)} require review')
-          for r in low:
-              print(r['institution'], '=>', r['ipeds_name'], r['match_score'], r['alternatives'])
+          with open('tmp_rd_per_fte_matches.csv', encoding='utf-8-sig', newline='') as f:
+              rows = list(csv.DictReader(f))
+          fields = list(rows[0])
+          size = 31
+          for part, start in enumerate(range(0, len(rows), size), start=1):
+              path = f'tmp_rd_per_fte_part{part}.csv'
+              with open(path, 'w', encoding='utf-8', newline='') as f:
+                  writer = csv.DictWriter(f, fieldnames=fields)
+                  writer.writeheader()
+                  writer.writerows(rows[start:start+size])
+              print(path, len(rows[start:start+size]))
           PY
 
-      - name: Commit corrected temporary matched table
+      - name: Commit temporary chunks
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add tmp_rd_per_fte_matches.csv
-          git commit -m 'Correct temporary R&D per FTE matches'
+          git add tmp_rd_per_fte_part*.csv
+          git commit -m 'Split temporary R&D per FTE data'
           git push
