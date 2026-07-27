@@ -1,4 +1,4 @@
-name: Temporary IPEDS FTE export
+name: Temporary IPEDS FTE matching
 
 on:
   push:
@@ -9,58 +9,122 @@ permissions:
   contents: write
 
 jobs:
-  export:
+  match:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build named IPEDS FTE table
+      - name: Match funding institutions to IPEDS FTE
         shell: bash
         run: |
           python - <<'PY'
           import csv
-          import urllib.request
+          import difflib
+          import re
+          import unicodedata
 
-          directory_url = 'https://raw.githubusercontent.com/pnvchaitanya/us-higher-education-dashboard/e5f541bb71b5efef65a5cdea2993a7e4dd56af19/cleaned_data/dim_institution.csv'
-          fte_url = 'https://raw.githubusercontent.com/admiralorbiter/delphi/a3a0af8755c72319c7a8caf7a36cbdeaa75e44d0/data/ipeds/DRVEF122024.csv'
+          def normalize(value):
+              value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode()
+              value = value.lower().replace('&', ' and ')
+              value = value.replace('suny', ' ')
+              value = re.sub(r'[^a-z0-9]+', ' ', value)
+              return ' '.join(value.split())
 
-          urllib.request.urlretrieve(directory_url, 'dim_institution.csv')
-          urllib.request.urlretrieve(fte_url, 'DRVEF122024.csv')
+          aliases = {
+              normalize('University of Michigan—Ann Arbor'): normalize('University of Michigan-Ann Arbor'),
+              normalize('University of North Carolina—Chapel Hill'): normalize('University of North Carolina at Chapel Hill'),
+              normalize('The Ohio State University'): normalize('Ohio State University-Main Campus'),
+              normalize('Georgia Institute of Technology'): normalize('Georgia Institute of Technology-Main Campus'),
+              normalize('Texas A&M University'): normalize('Texas A & M University-College Station'),
+              normalize('Pennsylvania State University—University Park'): normalize('Pennsylvania State University-Main Campus'),
+              normalize('University of Texas at Austin'): normalize('The University of Texas at Austin'),
+              normalize('University at Buffalo—SUNY'): normalize('University at Buffalo'),
+              normalize('Stony Brook University—SUNY'): normalize('Stony Brook University'),
+              normalize('Binghamton University—SUNY'): normalize('Binghamton University'),
+          }
 
-          directory = {}
-          with open('dim_institution.csv', encoding='utf-8-sig', newline='') as f:
+          rows = []
+          with open('tmp_ipeds_fte_2024_named.csv', encoding='utf-8-sig', newline='') as f:
               for row in csv.DictReader(f):
-                  directory[row['institution_id']] = row
+                  if row['institution_name'] and row['fte12mn'] not in ('', '.', '-1', '-2', '-3'):
+                      row['_norm'] = normalize(row['institution_name'])
+                      rows.append(row)
+
+          by_norm = {}
+          for row in rows:
+              by_norm.setdefault(row['_norm'], []).append(row)
+          norms = list(by_norm)
 
           output = []
-          with open('DRVEF122024.csv', encoding='utf-8-sig', newline='') as f:
-              for row in csv.DictReader(f):
-                  info = directory.get(row['UNITID'], {})
-                  output.append({
-                      'unitid': row['UNITID'],
-                      'institution_name': info.get('institution_name', ''),
-                      'city': info.get('city', ''),
-                      'state': info.get('state', ''),
-                      'fte12mn': row['FTE12MN'],
-                      'unduplicated_headcount': row['UNDUP'],
-                  })
+          with open('tmp_us_funding_targets.csv', encoding='utf-8-sig', newline='') as f:
+              targets = list(csv.DictReader(f))
 
-          with open('tmp_ipeds_fte_2024_named.csv', 'w', encoding='utf-8', newline='') as f:
-              writer = csv.DictWriter(f, fieldnames=[
-                  'unitid', 'institution_name', 'city', 'state',
-                  'fte12mn', 'unduplicated_headcount'
-              ])
+          for target in targets:
+              original_norm = normalize(target['institution'])
+              wanted_norm = aliases.get(original_norm, original_norm)
+              candidates = by_norm.get(wanted_norm, [])
+              match_type = 'Exact normalized name'
+              score = 1.0
+
+              if not candidates:
+                  best = difflib.get_close_matches(wanted_norm, norms, n=3, cutoff=0.55)
+                  if not best:
+                      matched = None
+                      alternatives = ''
+                      score = 0.0
+                      match_type = 'Unmatched'
+                  else:
+                      best_norm = best[0]
+                      candidates = by_norm[best_norm]
+                      matched = candidates[0]
+                      score = difflib.SequenceMatcher(None, wanted_norm, best_norm).ratio()
+                      alternatives = ' | '.join(
+                          f"{by_norm[n][0]['institution_name']} ({difflib.SequenceMatcher(None, wanted_norm, n).ratio():.3f})"
+                          for n in best
+                      )
+                      match_type = 'Fuzzy name match'
+              else:
+                  matched = candidates[0]
+                  alternatives = ''
+                  if wanted_norm != original_norm:
+                      match_type = 'Manual alias'
+
+              if candidates and 'matched' not in locals():
+                  matched = candidates[0]
+
+              if matched is None:
+                  output.append({**target, 'unitid':'', 'ipeds_name':'', 'city':'', 'state':'',
+                                 'fte12mn':'', 'unduplicated_headcount':'', 'match_type':match_type,
+                                 'match_score':score, 'alternatives':alternatives})
+              else:
+                  output.append({**target, 'unitid':matched['unitid'],
+                                 'ipeds_name':matched['institution_name'], 'city':matched['city'],
+                                 'state':matched['state'], 'fte12mn':matched['fte12mn'],
+                                 'unduplicated_headcount':matched['unduplicated_headcount'],
+                                 'match_type':match_type, 'match_score':score,
+                                 'alternatives':alternatives})
+              if 'matched' in locals():
+                  del matched
+
+          fields = ['institution','category','herd_rank','rd_thousands','scope_note',
+                    'unitid','ipeds_name','city','state','fte12mn','unduplicated_headcount',
+                    'match_type','match_score','alternatives']
+          with open('tmp_rd_per_fte_matches.csv', 'w', encoding='utf-8', newline='') as f:
+              writer = csv.DictWriter(f, fieldnames=fields)
               writer.writeheader()
               writer.writerows(output)
 
-          print(f'Wrote {len(output)} rows')
+          low = [r for r in output if not r['fte12mn'] or float(r['match_score']) < 0.90]
+          print(f'Matched {len(output)-len(low)} high-confidence rows; {len(low)} require review')
+          for r in low:
+              print(r['institution'], '=>', r['ipeds_name'], r['match_score'], r['alternatives'])
           PY
 
-      - name: Commit temporary extract
+      - name: Commit temporary matched table
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add tmp_ipeds_fte_2024_named.csv
-          git commit -m 'Add temporary IPEDS FTE extract'
+          git add tmp_rd_per_fte_matches.csv
+          git commit -m 'Add temporary R&D per FTE matches'
           git push
