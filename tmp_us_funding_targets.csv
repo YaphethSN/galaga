@@ -1,0 +1,122 @@
+institution,category,herd_rank,rd_thousands,scope_note
+Johns Hopkins University,US national university,1,4129264,Includes the Applied Physics Laboratory; APL accounts for $2.550B of the FY2024 total.
+University of Pennsylvania,US national university,2,2167504,Campus/institution as reported by NSF HERD.
+University of Michigan—Ann Arbor,US national university,4,2110961,Campus/institution as reported by NSF HERD.
+University of Wisconsin—Madison,US national university,5,1933229,Campus/institution as reported by NSF HERD.
+"University of California, Los Angeles",US national university,6,1896227,Campus/institution as reported by NSF HERD.
+"University of California, San Diego",US national university,7,1881289,Campus/institution as reported by NSF HERD.
+University of Washington,US national university,8,1691302,Campus/institution as reported by NSF HERD.
+Stanford University,US national university,9,1641961,Campus/institution as reported by NSF HERD.
+Cornell University,US national university,10,1613631,Campus/institution as reported by NSF HERD.
+University of North Carolina—Chapel Hill,US national university,11,1598751,Campus/institution as reported by NSF HERD.
+The Ohio State University,US national university,12,1581570,Campus/institution as reported by NSF HERD.
+Duke University,US national university,13,1580756,Campus/institution as reported by NSF HERD.
+"University of Maryland, College Park",US national university,14,1539520,"NSF row combines College Park and University of Maryland, Baltimore."
+Georgia Institute of Technology,US national university,15,1528637,Campus/institution as reported by NSF HERD.
+Yale University,US national university,16,1519694,Campus/institution as reported by NSF HERD.
+University of Pittsburgh,US national university,17,1504665,Campus/institution as reported by NSF HERD.
+New York University,US national university,18,1500732,Campus/institution as reported by NSF HERD.
+Harvard University,US national university,19,1494527,Campus/institution as reported by NSF HERD.
+Columbia University,US national university,20,1449535,Campus/institution as reported by NSF HERD.
+University of Minnesota—Twin Cities,US national university,21,1409710,Campus/institution as reported by NSF HERD.
+Texas A&M University,US national university,22,1393825,NSF row combines College Station and the Health Science Center.
+Vanderbilt University,US national university,24,1327870,NSF row includes Vanderbilt University Medical Center.
+Pennsylvania State University—University Park,US national university,25,1302971,NSF row combines University Park and Hershey Medical Center.
+University of Florida,US national university,26,1272493,Campus/institution as reported by NSF HERD.
+University of Southern California,US national university,27,1264197,Campus/institution as reported by NSF HERD.
+Northwestern University,US national university,28,1257859,Campus/institution as reported by NSF HERD.
+Emory University,US national university,29,1246507,Campus/institution as reported by NSF HERD.
+Washington University in St. Louis,US national university,30,1243115,Campus/institution as reported by NSF HERD.
+University of Texas at Austin,US national university,31,1143917,Campus/institution as reported by NSF HERD.
+"University of California, Berkeley",US national university,32,1126782,Campus/institution as reported by NSF HERD.
+Massachusetts Institute of Technology,US national university,33,1065554,Campus/institution as reported by NSF HERD.
+"University of California, Davis",US national university,36,1005757,Campus/institution as reported by NSF HERD.
+Michigan State University,US national university,38,931848,Campus/institution as reported by NSF HERD.
+Purdue University—Main Campus,US national university,39,931513,Campus/institution as reported by NSF HERD.
+University of Illinois Urbana-Champaign,US national university,40,906751,Campus/institution as reported by NSF HERD.
+Indiana University—Bloomington,US national university,41,896983,Campus/institution as reported by NSF HERD.
+Rutgers University—New Brunswick,US national university,45,836800,Campus/institution as reported by NSF HERD.
+University of Virginia,US national university,46,813772,Campus/institution as reported by NSF HERD.
+Boston University,US national university,48,784355,Campus/institution as reported by NSF HERD.
+University of Colorado Boulder,US national university,51,717920,Campus/institution as reported by NSF HERD.
+North Carolina State University,US national university,52,717004,Campus/institution as reported by NSF HERD.
+University of Chicago,US national university,54,680753,Campus/institution as reported by NSF HERD.
+Virginia Tech,US national university,56,656916,Campus/institution as reported by NSF HERD.
+"University of California, Irvine",US national university,57,644948,Campus/institution as reported by NSF HERD.
+Case Western Reserve University,US national university,58,642546,Campus/institution as reported by NSF HERD.
+University of Georgia,US national university,59,628117,Campus/institution as reported by NSF HERD.
+University of Miami,US national university,61,559013,Campus/institution as reported by NSF HERD.
+Princeton University,US national university,62,558624,Campus/institution as reported by NSF HERD.
+University at Buffalo—SUNY,US national university,65,541880,Campus/institution as reported by NSF HERD.
+University of Illinois Chicago,US national university,66,532181,Campus/institution as reported by NSF HERD.
+University of South Florida,US national university,69,521892,Campus/institution as reported by NSF HERD.
+Carnegie Mellon University,US national university,71,505262,Campus/institution as reported by NSF HERD.
+University of Rochester,US national university,73,492372,Campus/institution as reported by NSF HERD.
+University of Delaware,US national university,77,465780,Campus/institution as reported by NSF HERD.
+Florida State University,US national university,79,460733,Campus/institution as reported by NSF HERD.
+California Institute of Technology,US national university,81,445173,Campus/institution as reported by NSF HERD.
+University of Connecticut,US national university,82,433545,Campus/institution as reported by NSF HERD.
+Dartmouth College,US national university,85,418429,NSF row combines Dartmouth College and Dartmouth Hitchcock Medical Center.
+George Washington University,US national university,90,381582,Campus/institution as reported by NSF HERD.
+Georgetown University,US national university,91,376600,Campus/institution as reported by NSF HERD.
+Brown University,US national university,93,374504,Campus/institution as reported by NSF HERD.
+Northeastern University,US national university,99,346900,Campus/institution as reported by NSF HERD.
+University of Notre Dame,US national university,100,345791,Campus/institution as reported by NSF HERD.
+Wake Forest University,US national university,101,344517,Campus/institution as reported by NSF HERD.
+Clemson University,US national university,103,338533,Campus/institution as reported by NSF HERD.
+Florida International University,US national university,104,325785,Campus/institution as reported by NSF HERD.
+Stony Brook University—SUNY,US national university,106,319258,Campus/institution as reported by NSF HERD.
+"University of California, Santa Barbara",US national university,111,303446,Campus/institution as reported by NSF HERD.
+University of Massachusetts Amherst,US national university,114,281730,Campus/institution as reported by NSF HERD.
+Tufts University,US national university,116,278304,Campus/institution as reported by NSF HERD.
+Rice University,US national university,117,277683,Campus/institution as reported by NSF HERD.
+Tulane University of Louisiana,US national university,119,275885,Campus/institution as reported by NSF HERD.
+"University of California, Riverside",US national university,133,231596,Campus/institution as reported by NSF HERD.
+"University of California, Santa Cruz",US national university,139,218426,Campus/institution as reported by NSF HERD.
+Syracuse University,US national university,142,198750,Campus/institution as reported by NSF HERD.
+New Jersey Institute of Technology,US national university,149,171741,Campus/institution as reported by NSF HERD.
+Drexel University,US national university,151,170205,Campus/institution as reported by NSF HERD.
+Binghamton University—SUNY,US national university,155,160644,Campus/institution as reported by NSF HERD.
+Rensselaer Polytechnic Institute,US national university,164,140247,Campus/institution as reported by NSF HERD.
+Baylor University,US national university,167,134876,Campus/institution as reported by NSF HERD.
+Colorado School of Mines,US national university,174,109905,Campus/institution as reported by NSF HERD.
+Brandeis University,US national university,176,107059,Campus/institution as reported by NSF HERD.
+Howard University,US national university,178,101815,Campus/institution as reported by NSF HERD.
+Boston College,US national university,179,96310,Campus/institution as reported by NSF HERD.
+William & Mary,US national university,182,94609,Campus/institution as reported by NSF HERD.
+Rochester Institute of Technology,US national university,197,78488,Campus/institution as reported by NSF HERD.
+American University,US national university,198,78356,Campus/institution as reported by NSF HERD.
+"University of California, Merced",US national university,200,77233,Campus/institution as reported by NSF HERD.
+Worcester Polytechnic Institute,US national university,208,71552,Campus/institution as reported by NSF HERD.
+Stevens Institute of Technology,US national university,209,70736,Campus/institution as reported by NSF HERD.
+Southern Methodist University,US national university,217,62553,Campus/institution as reported by NSF HERD.
+Lehigh University,US national university,218,62406,Campus/institution as reported by NSF HERD.
+Marquette University,US national university,238,49099,Campus/institution as reported by NSF HERD.
+Villanova University,US national university,266,33090,Campus/institution as reported by NSF HERD.
+Fordham University,US national university,279,28249,Campus/institution as reported by NSF HERD.
+Texas Christian University,US national university,282,27659,Campus/institution as reported by NSF HERD.
+Rutgers University—Newark,US national university,288,26222,Campus/institution as reported by NSF HERD.
+Pepperdine University,US national university,367,10870,Campus/institution as reported by NSF HERD.
+Wesleyan University,Liberal arts college,368,10819,Campus/institution as reported by NSF HERD.
+Yeshiva University,US national university,375,10290,Campus/institution as reported by NSF HERD.
+Rutgers University—Camden,US national university,377,9849,Campus/institution as reported by NSF HERD.
+Amherst College,Liberal arts college,388,8666,Campus/institution as reported by NSF HERD.
+Santa Clara University,US national university,400,8011,Campus/institution as reported by NSF HERD.
+Claremont McKenna College,Liberal arts college,406,7777,Campus/institution as reported by NSF HERD.
+Smith College,Liberal arts college,411,7375,Campus/institution as reported by NSF HERD.
+Grinnell College,Liberal arts college,414,7131,Campus/institution as reported by NSF HERD.
+Williams College,Liberal arts college,415,7074,Campus/institution as reported by NSF HERD.
+Wellesley College,Liberal arts college,418,6989,Campus/institution as reported by NSF HERD.
+Barnard College,Liberal arts college,429,6361,Campus/institution as reported by NSF HERD.
+Swarthmore College,Liberal arts college,435,6067,Campus/institution as reported by NSF HERD.
+Pomona College,Liberal arts college,457,5522,Campus/institution as reported by NSF HERD.
+Carleton College,Liberal arts college,466,4993,Campus/institution as reported by NSF HERD.
+Colgate University,Liberal arts college,474,4730,Campus/institution as reported by NSF HERD.
+Davidson College,Liberal arts college,481,4525,Campus/institution as reported by NSF HERD.
+Harvey Mudd College,Liberal arts college,498,3900,Campus/institution as reported by NSF HERD.
+Vassar College,Liberal arts college,508,3775,Campus/institution as reported by NSF HERD.
+Hamilton College,Liberal arts college,513,3664,Campus/institution as reported by NSF HERD.
+Middlebury College,Liberal arts college,518,3576,Campus/institution as reported by NSF HERD.
+Bowdoin College,Liberal arts college,525,3406,Campus/institution as reported by NSF HERD.
+University of Richmond,Liberal arts college,543,2961,Campus/institution as reported by NSF HERD.
+Washington and Lee University,Liberal arts college,885,259,Campus/institution as reported by NSF HERD.
