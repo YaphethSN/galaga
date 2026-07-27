@@ -1,0 +1,1595 @@
+rank,university,P,P_top1,PP_top1
+1,MIT,9905,339,3.4%
+2,Princeton Univ,5466,168,3.1%
+3,Caltech,5012,149,3.0%
+4,Stanford Univ,17975,532,3.0%
+5,Harvard Univ,36163,1003,2.8%
+6,Northeast Electric Power Univ,1372,35,2.6%
+7,King Abdullah Univ Sci & Technol,3768,95,2.5%
+8,Weizmann Inst Sci,2422,60,2.5%
+9,Univ Oxford,16697,412,2.5%
+10,Swinburne Univ Technol,2513,61,2.4%
+11,Univ Cambridge,13895,336,2.4%
+12,Ecole Polytech Féd Lausanne,5430,129,2.4%
+13,Imperial Coll London,13088,311,2.4%
+14,Chengdu Univ Tradit Chin Med,2770,66,2.4%
+15,Nanyang Technol Univ,9694,226,2.3%
+16,Hunan Univ Technol,934,22,2.3%
+17,Duy Tan Univ,1196,28,2.3%
+18,Bohai Univ,1025,24,2.3%
+19,London Sch Hyg & Trop Med,2647,61,2.3%
+20,Univ California - Berkeley,9143,210,2.3%
+21,Qingdao Univ Technol,2013,46,2.3%
+22,ETH Zürich,9892,224,2.3%
+23,Univ South Queensland,1175,26,2.2%
+24,Univ W England - Bristol,933,21,2.2%
+25,Univ California - San Francisco,10631,234,2.2%
+26,Icahn Sch Med - Mt Sinai,6368,139,2.2%
+27,Univ Exeter,4354,94,2.2%
+28,Cornell Univ,13916,301,2.2%
+29,Univ California - Santa Barbara,4029,86,2.1%
+30,Univ Coll London,16585,356,2.1%
+31,Tsinghua Univ,25595,548,2.1%
+32,Yale Univ,12686,271,2.1%
+33,Univ California - San Diego,13139,281,2.1%
+34,Univ Technol - Sydney,5114,109,2.1%
+35,Columbia Univ,13268,277,2.1%
+36,Hong Kong Polytech Univ,9140,190,2.1%
+37,Univ Texas - Southwestern Med Ctr - Dallas,5257,109,2.1%
+38,Australian Cath Univ,824,17,2.1%
+39,Natl Univ Singapore,14068,289,2.1%
+40,Univ Glasgow,6102,125,2.1%
+41,Northwestern Univ,11205,228,2.0%
+42,Babol Noshirvani Univ Technol,1295,26,2.0%
+43,LUT Univ,920,18,2.0%
+44,Singapore Univ Technol & Design,1033,21,2.0%
+45,Washington Univ St Louis,9307,186,2.0%
+46,Hamad Bin Khalifa Univ,1168,23,2.0%
+47,Albert Einstein Coll Med,2313,46,2.0%
+48,Queen Mary Univ London,4335,86,2.0%
+49,Univ E Anglia,2008,39,1.9%
+50,Aston Univ,1018,20,1.9%
+51,Zhejiang Ocean Univ,1181,23,1.9%
+52,City Univ Hong Kong,6713,128,1.9%
+53,Univ Maryland - College Park,6707,127,1.9%
+54,Univ California - Los Angeles,14305,271,1.9%
+55,King's Coll London,9681,183,1.9%
+56,Univ Chicago,10252,193,1.9%
+57,Univ Sharjah,1856,35,1.9%
+58,Hunan Univ,10462,196,1.9%
+59,Univ Washington - Seattle,15004,281,1.9%
+60,Univ Penn,16997,317,1.9%
+61,Qatar Univ,3301,61,1.9%
+62,NYU,11564,214,1.9%
+63,RMIT Univ,4433,81,1.8%
+64,Chin Univ Hong Kong,8690,157,1.8%
+65,Univ Edinburgh,8953,162,1.8%
+66,London Sch Econ & Polit Sci,2178,39,1.8%
+67,Univ Texas - Hlth Sci Ctr - Houston,9431,170,1.8%
+68,Carnegie Mellon Univ,3175,57,1.8%
+69,Univ Massachusetts Med Sch,1655,29,1.8%
+70,Victoria Univ - Melbourne,940,17,1.8%
+71,Univ California - Santa Cruz,1999,35,1.7%
+72,Vrije Univ Amsterdam,6270,109,1.7%
+73,Univ Liverpool,5625,98,1.7%
+74,Cranfield Univ,1572,27,1.7%
+75,Zhejiang Gongshang Univ,1859,32,1.7%
+76,GuangZhou Univ,4551,78,1.7%
+77,Rice Univ,2611,45,1.7%
+78,Lovely Professional Univ,1273,22,1.7%
+79,Northeast Agr Univ,4372,75,1.7%
+80,Univ Michigan,19528,332,1.7%
+81,Univ Amsterdam,9681,165,1.7%
+82,Univ New S Wales,13067,222,1.7%
+83,Univ York,3381,57,1.7%
+84,Duke Univ,12481,211,1.7%
+85,Univ Surrey,2522,42,1.7%
+86,Dublin City Univ,1111,19,1.7%
+87,Edith Cowan Univ,1480,25,1.7%
+88,Univ St Andrews,1952,33,1.7%
+89,"Trinity Coll Dublin, Univ Dublin",3946,66,1.7%
+90,Vita-Salute San Raffaele Univ,2144,36,1.7%
+91,Northeastern Univ - USA,2944,49,1.7%
+92,Univ Colorado - Boulder,5902,98,1.7%
+93,South Univ Sci & Technol China,6435,106,1.7%
+94,Utrecht Univ,10042,165,1.6%
+95,Karolinska Inst,8917,146,1.6%
+96,Univ Int Business & Econ,908,15,1.6%
+97,Inst Chem Technol,1161,19,1.6%
+98,Khalifa Univ Sci & Technol,2325,38,1.6%
+99,Deakin Univ,5488,90,1.6%
+100,King Fahd Univ Petrol & Minerals,3752,61,1.6%
+101,Univ Orléans,846,14,1.6%
+102,Nankai Univ,9602,156,1.6%
+103,Univ Hong Kong,10001,163,1.6%
+104,Queen's Univ Belfast,3519,57,1.6%
+105,Southwestern Univ Finance & Econ,1670,27,1.6%
+106,Univ PSL,4384,71,1.6%
+107,Wageningen Univ & Res,5723,93,1.6%
+108,Brunel Univ London,1459,24,1.6%
+109,Vanderbilt Univ,8610,139,1.6%
+110,Hong Kong Baptist Univ,1700,27,1.6%
+111,Univ Potsdam,1985,32,1.6%
+112,Swansea Univ,2161,35,1.6%
+113,Univ Birmingham,7012,113,1.6%
+114,McMaster Univ,7391,119,1.6%
+115,Univ Leicester,2597,41,1.6%
+116,China Univ Geosci,7202,115,1.6%
+117,Keele Univ,927,15,1.6%
+118,Univ Massachusetts Amherst,3735,60,1.6%
+119,Durham Univ,3190,51,1.6%
+120,Univ Southampton,5910,94,1.6%
+121,Hong Kong Univ Sci & Technol,4513,71,1.6%
+122,Leiden Univ,7466,118,1.6%
+123,Univ N Carolina - Chapel Hill,10585,166,1.6%
+124,Northumbria Univ,1803,28,1.6%
+125,Univ Sussex,2192,34,1.6%
+126,Univ Queensland,13003,203,1.6%
+127,City St Georges - Univ London,1844,29,1.6%
+128,Boston Coll,1410,22,1.6%
+129,Nanchang Hangkong Univ,1427,22,1.5%
+130,Beijing Technol & Business Univ,2546,39,1.5%
+131,Univ Texas - Austin,9841,152,1.5%
+132,Zhejiang Normal Univ,3099,48,1.5%
+133,Johns Hopkins Univ,18570,285,1.5%
+134,Univ Manchester,10327,158,1.5%
+135,Univ Graz,1473,23,1.5%
+136,Univ Warwick,4596,70,1.5%
+137,Nottingham Trent Univ,1204,18,1.5%
+138,Brown Univ,5755,87,1.5%
+139,Johannes Gutenberg Univ Mainz,4214,64,1.5%
+140,Univ Huddersfield,976,15,1.5%
+141,Univ Sheffield,6108,92,1.5%
+142,Katholieke Univ Leuven,11623,175,1.5%
+143,Univ Electron Sci & Technol China,13538,203,1.5%
+144,Northwestern Polytech Univ,14354,215,1.5%
+145,James Cook Univ,2089,31,1.5%
+146,Baylor Coll Med,5457,82,1.5%
+147,Univ Basel,5179,78,1.5%
+148,Monash Univ,13806,206,1.5%
+149,Univ Algarve,848,13,1.5%
+150,Ctr Queensland Univ,1026,15,1.5%
+151,Univ of Dhaka,972,14,1.5%
+152,Univ Sydney,14408,214,1.5%
+153,Ton Duc Thang Univ,1591,24,1.5%
+154,Univ Tek Malaysia,3046,45,1.5%
+155,Univ Münster,5210,77,1.5%
+156,Univ Bern,6751,100,1.5%
+157,Royal Coll Surgeons Ireland,1095,16,1.5%
+158,Tech Univ Berlin,3288,48,1.5%
+159,Radboud Univ,7136,105,1.5%
+160,Bangor Univ,858,13,1.5%
+161,Peking Univ,23196,340,1.5%
+162,Univ Leeds,6471,95,1.5%
+163,Qingdao Univ,9718,142,1.5%
+164,Boston Univ,7123,104,1.5%
+165,Kermanshah Univ Med Sci,1302,19,1.5%
+166,Univ California - Merced,1093,16,1.5%
+167,McGill Univ,11467,167,1.5%
+168,Georg-August-Univ Göttingen,5063,74,1.5%
+169,Univ Melbourne,15085,219,1.5%
+170,Cent China Normal Univ,2951,43,1.4%
+171,Politec Bari,1091,16,1.4%
+172,Nanjing Univ Finance & Econ,961,14,1.4%
+173,Colorado Sch Mines,1470,21,1.4%
+174,Liverpool John Moores Univ,1337,19,1.4%
+175,Univ Bristol,6488,94,1.4%
+176,Maastricht Univ,5786,83,1.4%
+177,Univ California - Riverside,3540,51,1.4%
+178,Nanjing Forestry Univ,6785,97,1.4%
+179,Georgia Inst Technol,6532,94,1.4%
+180,Univ Paris-Cité (EPE),9936,142,1.4%
+181,Univ Toronto,25229,361,1.4%
+182,Oregon Hlth & Sci Univ,4076,58,1.4%
+183,Curtin Univ,4363,62,1.4%
+184,West Sydney Univ,2743,39,1.4%
+185,Univ Bath,2926,42,1.4%
+186,Southwest Jiaotong Univ,8978,128,1.4%
+187,Univ South California,9473,135,1.4%
+188,Univ Galway,2421,34,1.4%
+189,Univ Groningen,9263,131,1.4%
+190,Univ Zurich,9501,134,1.4%
+191,Changsha Univ Sci & Technol,2726,38,1.4%
+192,Univ Kragujevac,943,13,1.4%
+193,Tufts Univ,3569,50,1.4%
+194,Luleå Univ Technol,1409,20,1.4%
+195,China Agr Univ,10124,142,1.4%
+196,Univ Cent Florida,3639,51,1.4%
+197,Humanitas Univ,1258,18,1.4%
+198,Lancaster Univ,2564,36,1.4%
+199,Saveetha Inst Med & Tech Sci,1242,17,1.4%
+200,Univ Sci & Technol China,17005,237,1.4%
+201,Delft Univ Technol,6905,96,1.4%
+202,Univ Adelaide,6068,84,1.4%
+203,Aalborg Univ,4376,61,1.4%
+204,Univ Lausanne,4750,66,1.4%
+205,Xi'an Univ Arch & Technol,4120,57,1.4%
+206,Univ Dundee,1452,20,1.4%
+207,Shandong Univ Finance & Econ,810,11,1.4%
+208,Univ Wuppertal,803,11,1.4%
+209,Univ Sains Malaysia,4895,67,1.4%
+210,Case West Reserve Univ,10826,149,1.4%
+211,Erasmus Univ Rotterdam,7832,108,1.4%
+212,Univ California - Davis,10365,143,1.4%
+213,Beijing Inst Technol,13465,185,1.4%
+214,Univ Macau,3549,49,1.4%
+215,Univ Konstanz,1502,21,1.4%
+216,Temple Univ,3226,44,1.4%
+217,Tech Univ Denmark,5935,81,1.4%
+218,Hangzhou Normal Univ,2524,34,1.4%
+219,Univ Calgary,8177,111,1.4%
+220,Univ Trento,2483,34,1.4%
+221,Univ West Australia,6291,85,1.4%
+222,Chang'an Univ,5100,69,1.4%
+223,Dartmouth Coll,2702,37,1.4%
+224,Univ Geneva,5610,76,1.4%
+225,Murdoch Univ,1464,20,1.3%
+226,Sorbonne Univ,8970,121,1.3%
+227,Univ Pittsburgh,12063,162,1.3%
+228,Univ Beira Interior,1051,14,1.3%
+229,Stony Brook Univ - SUNY,3872,52,1.3%
+230,Chongqing Univ,15412,206,1.3%
+231,Australian Natl Univ,5440,73,1.3%
+232,Univ California - Irvine,7286,97,1.3%
+233,Univ Nottingham,8070,107,1.3%
+234,North Arizona Univ,1045,14,1.3%
+235,Humboldt Univ Berlin,5320,71,1.3%
+236,Nanjing Univ Sci & Technol,8858,118,1.3%
+237,Macquarie Univ,4299,57,1.3%
+238,Pompeu Fabra Univ,1448,19,1.3%
+239,Newcastle Univ,4948,65,1.3%
+240,Univ Coll Cork,2674,35,1.3%
+241,Jamia Millia Islamia,1475,19,1.3%
+242,Univ British Columbia,14156,186,1.3%
+243,Univ Minnesota - Twin Cities,12870,169,1.3%
+244,Univ Regina,1024,13,1.3%
+245,Pomeranian Med Univ Szczecin,1221,16,1.3%
+246,Univ Catanzaro,1264,16,1.3%
+247,Univ S Australia,2511,33,1.3%
+248,Loughborough Univ,2583,34,1.3%
+249,Stockholm Univ,4076,53,1.3%
+250,Freie Univ Berlin,5792,75,1.3%
+251,Univ Sorbonne Paris Nord,1043,14,1.3%
+252,Univ Sci & Technol Beijing,11327,147,1.3%
+253,Univ New England - Australia,1156,15,1.3%
+254,La Trobe Univ,3215,42,1.3%
+255,Univ Vienna,4653,60,1.3%
+256,Univ Ferrara,2223,29,1.3%
+257,Tongji Univ,19133,246,1.3%
+258,Univ Waterloo,6688,86,1.3%
+259,Eindhoven Univ Technol,3744,48,1.3%
+260,Univ Copenhagen,14736,189,1.3%
+261,Shenzhen Univ,11014,142,1.3%
+262,Univ Luxembourg,1516,19,1.3%
+263,Griffith Univ,4713,61,1.3%
+264,Univ Wisconsin - Madison,12306,158,1.3%
+265,Univ Gothenburg,6215,80,1.3%
+266,Zhejiang Univ,40492,517,1.3%
+267,Univ Minho,2994,38,1.3%
+268,Georgia State Univ,2253,29,1.3%
+269,Univ Aberdeen,2167,28,1.3%
+270,Stevens Inst Technol,821,10,1.3%
+271,Clemson Univ,2973,38,1.3%
+272,Univ Libre Bruxelles,3286,42,1.3%
+273,Univ Bonn,5141,65,1.3%
+274,Ludwig-Maximilians Univ München,8509,108,1.3%
+275,Georgetown Univ,2628,33,1.3%
+276,Penn State Univ,12396,157,1.3%
+277,Emory Univ,8589,109,1.3%
+278,Univ Coll Dublin,4639,59,1.3%
+279,Rheinland-Pfälzische Tech Univ Kaiserslautern-Landau,1562,20,1.3%
+280,Univ Paris-Saclay (EPE),8370,106,1.3%
+281,Univ Freiburg,5426,69,1.3%
+282,Anhui Univ Technol,2173,27,1.3%
+283,Univ Stavanger,1243,16,1.3%
+284,Univ Wollongong,3737,47,1.3%
+285,E China Jiaotong Univ,1554,20,1.3%
+286,Harbin Inst Technol,22769,286,1.3%
+287,Univ Camerino,865,11,1.3%
+288,Huazhong Univ Sci & Technol,29549,370,1.3%
+289,Cardiff Univ,4689,59,1.3%
+290,Julius Maximilian Univ Würzburg,4027,50,1.3%
+291,Univ Stirling,937,12,1.3%
+292,St Anna Sch Adv Studies,847,11,1.2%
+293,Univ Arizona,7237,90,1.2%
+294,Vrije Univ Brussel,2964,37,1.2%
+295,Univ Texas - Med Branch - Galveston,1734,22,1.2%
+296,Univ Ottawa,7446,93,1.2%
+297,Univ Alabama - Birmingham,5808,72,1.2%
+298,Florida Atlantic Univ,1307,16,1.2%
+299,Shanghai Univ,9248,115,1.2%
+300,Charles Darwin Univ,893,11,1.2%
+301,Colorado State Univ,4540,56,1.2%
+302,Aligarh Muslim Univ,2167,27,1.2%
+303,Malaviya Natl Inst Technol Jaipur,1174,15,1.2%
+304,Chengdu Univ,1630,20,1.2%
+305,Beijing Univ Chem Technol,6911,85,1.2%
+306,Univ Kashan,1337,17,1.2%
+307,Univ Portsmouth,1325,16,1.2%
+308,Med Univ Graz,1839,23,1.2%
+309,Auckland Univ Technol,1346,17,1.2%
+310,Univ Plymouth,1193,15,1.2%
+311,Univ Chin Acad Sci,24421,300,1.2%
+312,Michigan State Univ,8284,102,1.2%
+313,Univ Newcastle,3926,48,1.2%
+314,ShanghaiTech Univ,1817,22,1.2%
+315,Univ Auckland,6441,79,1.2%
+316,Univ Rochester,4586,56,1.2%
+317,Univ Toledo,1486,18,1.2%
+318,Wuhan Univ,21977,267,1.2%
+319,China Univ Petrol E China,6904,84,1.2%
+320,United Arab Emirates Univ,2164,26,1.2%
+321,Donghua Univ,5330,65,1.2%
+322,Univ N Texas,2035,25,1.2%
+323,Beihang Univ,13019,157,1.2%
+324,Univ Virginia,6367,77,1.2%
+325,Ohio State Univ,13908,168,1.2%
+326,Univ Nebraska Med Ctr,2201,26,1.2%
+327,Wenzhou Univ,2257,27,1.2%
+328,Ghent Univ,10411,125,1.2%
+329,Univ Strathclyde,2550,31,1.2%
+330,Shandong Univ Tradit Chin Med,1648,20,1.2%
+331,Fuzhou Univ,6311,76,1.2%
+332,Univ Reading,2266,27,1.2%
+333,Univ Texas - Hlth Sci Ctr - San Antonio,1744,21,1.2%
+334,Amer Univ Sharjah,846,10,1.2%
+335,Shanghai Univ Finance & Econ,1065,13,1.2%
+336,Univ Catholique Louvain,3781,45,1.2%
+337,Univ Vigo,2490,30,1.2%
+338,China Three Gorges Univ,2557,31,1.2%
+339,Tulane Univ,2608,31,1.2%
+340,Drexel Univ,2433,29,1.2%
+341,Univ Teknologi Petronas,1885,22,1.2%
+342,Northeast Petr Univ,1473,18,1.2%
+343,N Univ China,3381,40,1.2%
+344,Univ Malta,814,10,1.2%
+345,Indiana Univ - Bloomington,3965,47,1.2%
+346,Mem Univ Newfoundland,2614,31,1.2%
+347,Rutgers - State Univ New Jersey,8850,105,1.2%
+348,Nanjing Univ,15559,185,1.2%
+349,Univ Connecticut,5689,67,1.2%
+350,North-West Univ,1913,23,1.2%
+351,Univ Innsbruck,2449,29,1.2%
+352,Macao Univ Sci & Technol,1574,19,1.2%
+353,Cent Univ Finance & Econ,916,11,1.2%
+354,Amity Univ Noida,1134,13,1.2%
+355,China Univ Geosci Beijing,4541,53,1.2%
+356,Univ Naples Federico II,9075,107,1.2%
+357,Univ Victoria,2320,27,1.2%
+358,Univ Waikato,1066,12,1.2%
+359,Renmin Univ China,3007,35,1.2%
+360,Aalto Univ,3505,41,1.2%
+361,Univ Tennessee - Knoxville,5674,66,1.2%
+362,Univ Hull,998,12,1.2%
+363,Univ Utah,8021,94,1.2%
+364,Foshan Univ,1309,15,1.2%
+365,Univ Georgia - Athens,5994,70,1.2%
+366,Fudan Univ,24737,288,1.2%
+367,Univ Politec Marche,2505,29,1.2%
+368,Augusta Univ,1535,18,1.2%
+369,Univ Colorado - Denver,7454,87,1.2%
+370,Natl Inst Technol Patna,875,10,1.2%
+371,Zhejiang A & F Univ,2112,24,1.2%
+372,Semmelweis Univ,1837,21,1.2%
+373,Univ Aut Barcelona,5763,67,1.2%
+374,Transylvania Univ Brasov,944,11,1.2%
+375,Univ Guelph,4152,48,1.2%
+376,Ulm Univ,3258,38,1.2%
+377,S China Univ Technol,15200,176,1.2%
+378,Shanghai Jiao Tong Univ,37612,434,1.2%
+379,Flinders Univ,2948,34,1.2%
+380,Virginia Tech,6265,72,1.2%
+381,Med Univ Vienna,4913,57,1.2%
+382,SSN Coll Engn,1026,12,1.2%
+383,Univ Nevada - Reno,2187,25,1.2%
+384,Univ Helsinki,8087,93,1.2%
+385,York Univ,2948,34,1.2%
+386,Manchester Metropolitan Univ,1346,15,1.2%
+387,Dalian Univ Technol,15274,176,1.1%
+388,Univ Luebeck,1439,17,1.1%
+389,Purdue Univ,9805,113,1.1%
+390,Taizhou Univ,1150,13,1.1%
+391,Coll William & Mary,818,9,1.1%
+392,Natl & Kapodistrian Univ Athens,6104,70,1.1%
+393,Univ Pavia,3445,39,1.1%
+394,Univ Verona,2703,31,1.1%
+395,Univ Montpellier (EPE),6891,79,1.1%
+396,Zhengzhou Univ Light Industry,1798,21,1.1%
+397,Gdańsk Univ Technol,2381,27,1.1%
+398,Univ Palermo,3888,44,1.1%
+399,Univ Barcelona,7208,82,1.1%
+400,Heidelberg Univ,8274,94,1.1%
+401,Univ Mississippi,2293,26,1.1%
+402,Univ New Brunswick,1133,13,1.1%
+403,Univ Cologne,4837,55,1.1%
+404,Guangdong Univ Technol,6751,76,1.1%
+405,Shiraz Univ Technol,827,9,1.1%
+406,Univ Rhode Island,1372,15,1.1%
+407,KTH Royal Inst Technol,4328,49,1.1%
+408,Sejong Univ,2796,31,1.1%
+409,Univ Shanghai Sci & Technol,5353,60,1.1%
+410,Goethe Univ Frankfurt,4523,51,1.1%
+411,George Mason Univ,2290,26,1.1%
+412,Univ Nebraska - Lincoln,3396,38,1.1%
+413,First Moscow State Med Univ,1157,13,1.1%
+414,Syracuse Univ,1674,19,1.1%
+415,West Univ - Canada,7073,79,1.1%
+416,Univ Illinois - Urbana-Champaign,9775,109,1.1%
+417,Univ Alberta,11835,132,1.1%
+418,Univ Missouri - Columbia,4572,51,1.1%
+419,Med Univ S Carolina,2675,30,1.1%
+420,Florida Intl Univ,2728,30,1.1%
+421,Delhi Technol Univ,1631,18,1.1%
+422,Univ Canterbury,1649,18,1.1%
+423,Uppsala Univ,7201,80,1.1%
+424,Univ Campania Luigi Vanvitelli,3279,36,1.1%
+425,Shenyang Univ Technol,1813,20,1.1%
+426,Univ Agr Faisalabad,1918,21,1.1%
+427,Univ Paris-Est Créteil Val de Marne,1655,18,1.1%
+428,Jiangsu Univ,12152,135,1.1%
+429,Agr Univ Athens,951,11,1.1%
+430,Univ Tasmania,3185,35,1.1%
+431,Univ Florence,6621,73,1.1%
+432,Shantou Univ,2914,32,1.1%
+433,Henan Univ,4822,53,1.1%
+434,Politec Milano,5941,66,1.1%
+435,Loma Linda Univ,995,11,1.1%
+436,Tianjin Univ,19765,218,1.1%
+437,Vellore Inst Technol,5896,65,1.1%
+438,Wrocław Med Univ,2317,25,1.1%
+439,Sabancı Univ,802,9,1.1%
+440,Queensland Univ Technol,4572,50,1.1%
+441,Univ Catania,3827,42,1.1%
+442,Justus Liebig Univ Giessen,2850,31,1.1%
+443,Tianjin Univ Sci & Technol,2395,26,1.1%
+444,Chongqing Univ Sci & Technol,814,9,1.1%
+445,Univ Hawaii - Manoa,2653,29,1.1%
+446,Virginia Commonwealth Univ,4330,47,1.1%
+447,Sichuan Univ,33023,359,1.1%
+448,Qingdao Agr Univ,2204,24,1.1%
+449,Cent S Univ,30394,330,1.1%
+450,Univ Nova Lisboa,2756,30,1.1%
+451,Dalhousie Univ,4028,44,1.1%
+452,Anhui Univ,4348,47,1.1%
+453,Univ Twente,3223,35,1.1%
+454,Med Univ Białystok,1425,15,1.1%
+455,Xian Univ Sci & Technol,2607,28,1.1%
+456,Simon Fraser Univ,2735,30,1.1%
+457,Univ Delaware,3479,38,1.1%
+458,Carleton Univ,2477,27,1.1%
+459,Imam Khomeini Int Univ,867,9,1.1%
+460,Xiamen Univ,12872,139,1.1%
+461,Univ Ulster,1310,14,1.1%
+462,Univ Oklahoma,4078,44,1.1%
+463,Univ Oslo,8104,87,1.1%
+464,Wayne State Univ,3709,40,1.1%
+465,Chongqing Technol & Business Univ,994,11,1.1%
+466,Shenyang Aerosp Univ,929,10,1.1%
+467,Univ Calabria,2040,22,1.1%
+468,St Louis Univ,1546,17,1.1%
+469,Govt Coll Univ Faisalabad,1770,19,1.1%
+470,Univ Toulouse (EPE),4949,53,1.1%
+471,Shanghai Maritime Univ,2198,23,1.1%
+472,Univ Johannesburg,3086,33,1.1%
+473,Univ Salento,1418,15,1.1%
+474,Univ Miami,6063,65,1.1%
+475,Kafrelsheikh Univ,1210,13,1.1%
+476,Univ Oulu,3057,32,1.1%
+477,Univ Houston,3957,42,1.1%
+478,Kwangwoon Univ,1049,11,1.1%
+479,Univ Texas - San Antonio,1703,18,1.1%
+480,Wuhan Institute Technol,2117,22,1.1%
+481,Norwegian Univ Sci & Technol,7080,75,1.1%
+482,Sogang Univ,1183,12,1.1%
+483,Tech Univ Munich,9805,104,1.1%
+484,Aarhus Univ,8385,89,1.1%
+485,Panjab Univ,1828,19,1.1%
+486,Shaanxi Univ Sci & Technol,3206,34,1.1%
+487,Med Univ Lublin,1977,21,1.1%
+488,Univ Limerick,1805,19,1.1%
+489,Univ Oregon,2096,22,1.1%
+490,George Washington Univ,3938,41,1.1%
+491,Missouri Univ Sci & Technol,1527,16,1.0%
+492,Xidian Univ,8522,89,1.0%
+493,Univ Navarra,1800,19,1.0%
+494,Wake Forest Univ,2902,30,1.0%
+495,Univ Idaho,1247,13,1.0%
+496,Beijing Jiaotong Univ,6781,71,1.0%
+497,İzmir Katip Çelebi Univ,910,10,1.0%
+498,Natl Inst Technol Warangal,1261,13,1.0%
+499,Rush Univ,2428,25,1.0%
+500,Univ Iowa,5978,62,1.0%
+501,Univ Coimbra,4552,47,1.0%
+502,Univ Porto,8070,84,1.0%
+503,Univ Kurdistan,1035,11,1.0%
+504,Washington State Univ,4070,42,1.0%
+505,New Jersey Inst Technol,1144,12,1.0%
+506,Univ Buffalo - SUNY,4748,49,1.0%
+507,Univ Kassel,1124,12,1.0%
+508,Univ Tennessee Hlth Sci Ctr,1530,16,1.0%
+509,Univ N Dakota,824,9,1.0%
+510,Zhengzhou Univ,18021,187,1.0%
+511,E China Normal Univ,6981,72,1.0%
+512,Univ Campus Bio-Medico Roma,932,10,1.0%
+513,Texas A&M Univ - College Stn,11091,115,1.0%
+514,Univ Cyprus,1093,11,1.0%
+515,Univ Tartu,2073,21,1.0%
+516,Yantai Univ,2148,22,1.0%
+517,Wuhan Univ Sci & Technol,3790,39,1.0%
+518,Beijing Normal Univ,9242,95,1.0%
+519,Univ Trás-os-Montes & Alto Douro,850,9,1.0%
+520,Pohang Univ Sci & Technol,3499,36,1.0%
+521,Nanjing Univ Posts & Telecom,4444,46,1.0%
+522,Tech Univ Dresden,5780,59,1.0%
+523,Düzce Univ,817,8,1.0%
+524,Shandong Second Med Univ,1215,12,1.0%
+525,Univ Tehran,7903,81,1.0%
+526,Babeș-Bolyai Univ,1472,15,1.0%
+527,Beijing Univ Posts & Telecom,5290,54,1.0%
+528,Univ Kashmir,966,10,1.0%
+529,Jiangsu Normal Univ,1720,18,1.0%
+530,Bilkent Univ,1020,10,1.0%
+531,Med Coll Wisconsin,2704,28,1.0%
+532,Univ Albany - SUNY,1664,17,1.0%
+533,Swed Univ Agr Sci,2689,27,1.0%
+534,Univ Milan,9244,94,1.0%
+535,Univ Massachusetts Lowell,1056,11,1.0%
+536,Rensselaer Polytech Inst,1274,13,1.0%
+537,Tabriz Univ Med Sci,3353,34,1.0%
+538,Leipzig Univ,4070,42,1.0%
+539,Xi'an Jiaotong Univ,26520,271,1.0%
+540,Zhejiang Univ Technol,7227,74,1.0%
+541,Univ Greifswald,1645,17,1.0%
+542,Univ Cape Town,3663,37,1.0%
+543,Univ Duisburg-Essen,4243,43,1.0%
+544,Louisiana State Univ,3379,34,1.0%
+545,Univ Maryland - Baltimore County,838,8,1.0%
+546,Texas State Univ,1148,12,1.0%
+547,Univ Padova,10354,105,1.0%
+548,N Carolina State Univ,7285,74,1.0%
+549,Ulsan Natl Inst Sci & Technol,2612,26,1.0%
+550,Univ l'Aquila,1923,19,1.0%
+551,Agr Univ Hebei,1552,16,1.0%
+552,Shandong Normal Univ,3697,37,1.0%
+553,Florida State Univ,4007,40,1.0%
+554,Univ Bari Aldo Moro,4068,41,1.0%
+555,Univ S Florida - Tampa,4610,46,1.0%
+556,Hunan Agr Univ,2197,22,1.0%
+557,Shahrekord Univ,825,8,1.0%
+558,Fordham Univ,868,9,1.0%
+559,Fujian Agr & Forestry Univ,3579,36,1.0%
+560,Northeastern Univ - China,12909,129,1.0%
+561,Educ Univ Hong Kong,1345,13,1.0%
+562,Shandong Univ Sci & Technol,5814,58,1.0%
+563,Concordia Univ,2796,28,1.0%
+564,Karlsruhe Inst Technol,6269,63,1.0%
+565,Philipps-Univ Marburg,2390,24,1.0%
+566,Univ Putra Malaysia,4800,48,1.0%
+567,Sun Yat-sen Univ,27994,279,1.0%
+568,Lund Univ,8379,84,1.0%
+569,Guru Nanak Dev Univ,1081,11,1.0%
+570,Siksha ‘O’ Anusandhan,1059,11,1.0%
+571,Manipal Acad High Educ,2876,29,1.0%
+572,Univ Bordeaux,4168,41,1.0%
+573,Minia Univ,1206,12,1.0%
+574,Guangdong Med Univ,1461,15,1.0%
+575,Nazarbayev Univ,1224,12,1.0%
+576,Indian Inst Technol Mandi,976,10,1.0%
+577,Univ Maryland - Baltimore,4492,45,1.0%
+578,Univ Ontario Inst Technol,959,10,1.0%
+579,Uniformed Services Univ Hlth Sci,1476,15,1.0%
+580,Inst Polytech Paris (EPE),2658,26,1.0%
+581,Univ Kent,1549,15,1.0%
+582,Univ Mngmt & Tech,855,8,1.0%
+583,Nanchang Univ,10284,102,1.0%
+584,Univ Bayreuth,1855,18,1.0%
+585,Michigan Technol Univ,1076,11,1.0%
+586,Skolkovo Inst Sci & Technol,1070,11,1.0%
+587,Univ Bremen,1978,20,1.0%
+588,Jiangnan Univ,10564,104,1.0%
+589,Univ Med & Pharma Carol Davila Bucharest,1478,15,1.0%
+590,King Abdulaziz Univ,7980,79,1.0%
+591,Iowa State Univ,5032,50,1.0%
+592,Chemnitz Univ Technol,958,9,1.0%
+593,Josip Juraj Strossmayer Univ Osijek,962,9,1.0%
+594,Johannes Kepler Univ Linz,1493,15,1.0%
+595,Utah State Univ,2064,20,1.0%
+596,Politec Torino,4265,42,1.0%
+597,Linköping Univ,3751,37,1.0%
+598,Univ Bologna,9873,97,1.0%
+599,South Methodist Univ,906,9,1.0%
+600,Xi'An Univ Technol,4248,42,1.0%
+601,Univ Turku,3531,35,1.0%
+602,Univ Wisconsin - Milwaukee,1423,14,1.0%
+603,Univ Pisa,6231,61,1.0%
+604,Univ Turin,6468,63,1.0%
+605,Friedrich-Alexander-Univ Erlangen-Nürnberg,6445,63,1.0%
+606,Univ South Denmark,4784,47,1.0%
+607,Martin Luther Univ Halle-Wittenberg,2136,21,1.0%
+608,China Acad Chin Med Sci,2095,20,1.0%
+609,Upstate Med Univ - SUNY,885,9,1.0%
+610,Univ Florida,13764,134,1.0%
+611,Yeshiva Univ,1043,10,1.0%
+612,Med Univ Innsbruck,1883,18,1.0%
+613,Univ Montréal,7941,77,1.0%
+614,Univ Hamburg,6811,66,1.0%
+615,Tilburg Univ,1391,14,1.0%
+616,Northwest Agr & Forestry Univ,9487,92,1.0%
+617,Univ Milano-Bicocca,3438,33,1.0%
+618,Nanjing Agr Univ,7460,72,1.0%
+619,Ruhr-Univ Bochum,4457,43,1.0%
+620,Arizona State Univ,6970,67,1.0%
+621,Univ Otago,4224,41,1.0%
+622,Fujian Normal Univ,2520,24,1.0%
+623,Islamia Univ Bahawalpur,1253,12,1.0%
+624,Maria Curie-Sklodowska Univ,1111,11,1.0%
+625,Univ Kebangsaan Malaysia,4690,45,1.0%
+626,Queen's Univ,4069,39,1.0%
+627,Coventry Univ,1177,11,1.0%
+628,Jouf Univ,1531,15,1.0%
+629,Hohai Univ,7722,74,1.0%
+630,Univ S Carolina - Columbia,3966,38,1.0%
+631,Univ Memphis,1147,11,1.0%
+632,Chalmers Univ Technol,3385,32,1.0%
+633,S China Agr Univ,5842,56,1.0%
+634,Univ Insubria,1203,11,1.0%
+635,Roy Holloway - Univ London,1002,10,1.0%
+636,Brigham Young Univ,2336,22,1.0%
+637,Med Univ Łódź,2065,20,0.9%
+638,Yeungnam Univ,3519,33,0.9%
+639,Univ Cincinnati,6802,64,0.9%
+640,Sultan Qaboos Univ,1263,12,0.9%
+641,Univ Antwerp,3937,37,0.9%
+642,Jinan Univ,8650,82,0.9%
+643,Univ Vet Med Vienna,989,9,0.9%
+644,Univ Lahore,1045,10,0.9%
+645,Harbin Engn Univ,6327,60,0.9%
+646,Univ Foggia,1012,10,0.9%
+647,Xi'an Polytech Univ,1092,10,0.9%
+648,Hannover Med Sch,2713,26,0.9%
+649,Natl Inst Technol Silchar,1318,12,0.9%
+650,Univ Côte d’Azur,2667,25,0.9%
+651,Abdul Wali Khan Univ Mardan,948,9,0.9%
+652,Semnan Univ,1569,15,0.9%
+653,Univ Notre Dame,3071,29,0.9%
+654,Publ Univ Navarra,1044,10,0.9%
+655,Kansas State Univ,2707,25,0.9%
+656,Jazan Univ,1531,14,0.9%
+657,Boise State Univ,810,8,0.9%
+658,Univ Saskatchewan,4097,38,0.9%
+659,Univ Cattolica Sacro Cuore,4765,44,0.9%
+660,Hubei Univ,2321,22,0.9%
+661,Auburn Univ,3517,33,0.9%
+662,Univ Witwatersrand,3788,35,0.9%
+663,Univ Mohaghegh Ardabili,1037,10,0.9%
+664,Huazhong Agr Univ,6530,61,0.9%
+665,Univ Strasbourg,4377,41,0.9%
+666,Sapienza Univ Rome,11286,104,0.9%
+667,Fujian Univ Technol,820,8,0.9%
+668,E China Univ Sci & Technol,8138,75,0.9%
+669,Hasselt Univ,994,9,0.9%
+670,Liaocheng Univ,2181,20,0.9%
+671,Hangzhou Dianzi Univ,3981,37,0.9%
+672,Toronto Metropolitan Univ,2141,20,0.9%
+673,Univ Pablo Olavide,863,8,0.9%
+674,Dr B R Ambedkar Natl Inst Technol Jalandhar,900,8,0.9%
+675,Southeast Univ,18568,170,0.9%
+676,Heinrich Heine Univ Düsseldorf,3490,32,0.9%
+677,Natl Inst Technol Raipur,937,9,0.9%
+678,Univ Texas - Dallas,2318,21,0.9%
+679,Shandong Agr Univ,3204,29,0.9%
+680,Univ Tabuk,973,9,0.9%
+681,Univ Stuttgart,3016,27,0.9%
+682,Wuhan Univ Technol,8931,81,0.9%
+683,Univ New Mexico,3079,28,0.9%
+684,Univ N Carolina - Charlotte,1547,14,0.9%
+685,China Univ Petrol Beijing,4758,43,0.9%
+686,Thomas Jefferson Univ,2567,23,0.9%
+687,Univ Quebec Montreal,1382,12,0.9%
+688,Univ Castilla-La Mancha,2918,26,0.9%
+689,Univ Laval,5043,45,0.9%
+690,Nanjing Univ Info Sci & Technol,5617,50,0.9%
+691,E Carolina Univ,1336,12,0.9%
+692,Aix-Marseille Univ,6520,58,0.9%
+693,Shandong Univ,22727,204,0.9%
+694,Linnaeus Univ,855,8,0.9%
+695,Henan Univ Sci & Technol,3061,27,0.9%
+696,Jilin Univ,19900,178,0.9%
+697,Kiel Univ,3553,32,0.9%
+698,N China Elect Power Univ,6394,57,0.9%
+699,American Univ Beirut,2026,18,0.9%
+700,Yangzhou Univ,8444,75,0.9%
+701,Claude Bernard Lyon 1 Univ,5430,48,0.9%
+702,Lanzhou Univ,10255,92,0.9%
+703,Zhongnan Univ Econ & Law,1073,10,0.9%
+704,Minzu Univ China,813,7,0.9%
+705,Univ Salerno,2934,26,0.9%
+706,Friedrich Schiller Univ Jena,3668,33,0.9%
+707,Northwest Univ,4966,44,0.9%
+708,Xinyang Normal Univ,984,9,0.9%
+709,Chongqing Univ Posts & Telecom,2419,22,0.9%
+710,Univ Łódź,1568,14,0.9%
+711,Technol Monterrey,1941,17,0.9%
+712,Univ Essex,1380,12,0.9%
+713,Univ Denver,988,9,0.9%
+714,Natl Tech Univ Athens,2392,21,0.9%
+715,Dalian Maritime Univ,4004,35,0.9%
+716,Univ Santiago Compostela,3129,28,0.9%
+717,Univ Rovira & Virgili,1884,17,0.9%
+718,Guangdong Ocean Univ,1716,15,0.9%
+719,Univ Bergen,4050,36,0.9%
+720,Binghamton Univ - SUNY,1287,11,0.9%
+721,Univ Aut Madrid,4888,43,0.9%
+722,Univ Siegen,852,8,0.9%
+723,Indian Inst Tech (BHU) Varanasi,1788,16,0.9%
+724,Amirkabir Univ Technol,4190,37,0.9%
+725,China Med Univ - Taiwan,3214,28,0.9%
+726,Univ Fribourg,1253,11,0.9%
+727,Abant İzzet Baysal Univ,829,7,0.9%
+728,Univ Tours,1659,15,0.9%
+729,Ca' Foscari Univ Venice,839,7,0.9%
+730,Brno Univ Technol,1788,16,0.9%
+731,Texas Tech Univ,3657,32,0.9%
+732,Univ Valencia,6123,54,0.9%
+733,Hunan Univ Sci & Technol,1838,16,0.9%
+734,Yunnan Normal Univ,1170,10,0.9%
+735,Mashhad Univ Med Sci,2625,23,0.9%
+736,Jiangsu Univ Sci & Technol,3190,28,0.9%
+737,New Mexico State Univ,1137,10,0.9%
+738,Brescia Univ,1964,17,0.9%
+739,Henan Agr Univ,2438,21,0.9%
+740,Huzhou Univ,1108,10,0.9%
+741,Southwest Univ Sci & Technol,2680,23,0.9%
+742,Tanta Univ,2068,18,0.9%
+743,Nantes Univ (EPE),2954,26,0.9%
+744,Czech Univ Life Sci Prague,1610,14,0.9%
+745,Bielefeld Univ,2007,17,0.9%
+746,Hebrew Univ Jerusalem,6592,57,0.9%
+747,Qassim Univ,1990,17,0.9%
+748,Univ Jyväskylä,2085,18,0.9%
+749,Univ Aveiro,3934,34,0.9%
+750,Univ Liège,3241,28,0.9%
+751,Jiangxi Univ Sci & Technol,2155,19,0.9%
+752,Ludong Univ,1447,12,0.9%
+753,Univ Grenoble Alpes,6266,54,0.9%
+754,Univ Massachusetts Boston,905,8,0.9%
+755,UiT Artic Univ Norway,2251,19,0.9%
+756,Guilin Univ Technol,2555,22,0.9%
+757,Natl Res Tomsk Polytech Univ,1102,9,0.9%
+758,ÉTS,1033,9,0.9%
+759,North China Univ Technol,837,7,0.9%
+760,Univ Wyoming,1524,13,0.9%
+761,Rey Juan Carlos Univ,1993,17,0.9%
+762,Univ Lisboa,8738,75,0.9%
+763,Ocean Univ China,7477,64,0.9%
+764,San Diego State Univ,1703,15,0.9%
+765,Chongqing Jiaotong Univ,1668,14,0.9%
+766,Univ Pretoria,3489,30,0.9%
+767,Alagappa Univ,808,7,0.9%
+768,Birla Inst Technol & Sci,2886,25,0.9%
+769,Univ Augsburg,1040,9,0.8%
+770,Univ Tokyo,16075,136,0.8%
+771,W Virginia Univ,3065,26,0.8%
+772,Southwest Petrol Univ,4063,34,0.8%
+773,Cent S Univ Forestry & Technol,1751,15,0.8%
+774,Korea Adv Inst Sci & Technol,7011,59,0.8%
+775,Lehigh Univ,1298,11,0.8%
+776,Univ East Finland,2664,23,0.8%
+777,Eberhard Karls Univ Tübingen,5675,48,0.8%
+778,Paracelsus Med Univ,885,7,0.8%
+779,Örebro Univ,1292,11,0.8%
+780,Gabriele d'Annunzio Univ,1942,16,0.8%
+781,Univ Nat Resources & Life Sci - Vienna,1939,16,0.8%
+782,Heriot-Watt Univ,1228,10,0.8%
+783,Univ Eastern Piedmont Amedeo Avogadro,1301,11,0.8%
+784,Univ Texas Rio Grande Valley,801,7,0.8%
+785,Univ S China,3216,27,0.8%
+786,RWTH Aachen Univ,7293,61,0.8%
+787,Univ Illinois - Chicago,6120,51,0.8%
+788,Univ Alaska - Fairbanks,803,7,0.8%
+789,Technion - Israel Inst Technol,5041,42,0.8%
+790,Democritus Univ Thrace,1115,9,0.8%
+791,Gottfried Wilhelm Leibniz Univ Hannover,2646,22,0.8%
+792,Univ Jordan,1689,14,0.8%
+793,Koç Univ,1636,14,0.8%
+794,China Pharmaceut Univ,3676,31,0.8%
+795,Montanuniv Leoben,905,8,0.8%
+796,Quaid-i-Azam Univ,2369,20,0.8%
+797,Univ Messina,3135,26,0.8%
+798,Univ Rome Tor Vergata,3855,32,0.8%
+799,Guangzhou Med Univ,4879,41,0.8%
+800,Bu-Ali Sina Univ,1358,11,0.8%
+801,Birla Inst Technol Mesra,1030,9,0.8%
+802,Univ Tuscia,814,7,0.8%
+803,Univ Parma,2853,24,0.8%
+804,Zagazig Univ,3000,25,0.8%
+805,Med Univ Gdańsk,1611,13,0.8%
+806,Med Univ Warsaw,2561,21,0.8%
+807,Univ Rostock,2191,18,0.8%
+808,Liaoning Tech Univ,1364,11,0.8%
+809,Norwegian Univ Life Sci,1247,10,0.8%
+810,Univ Sassari,1336,11,0.8%
+811,Univ Manitoba,4301,36,0.8%
+812,China Med Univ,8219,68,0.8%
+813,Complutense Univ Madrid,6696,55,0.8%
+814,Univ Regensburg,3060,25,0.8%
+815,Univ Rennes (EPE),3439,28,0.8%
+816,Hefei Univ Technol,7045,58,0.8%
+817,Massey Univ,2505,21,0.8%
+818,Univ Clermont-Auvergne (EPE),2275,19,0.8%
+819,Henan Polytech Univ,3332,27,0.8%
+820,Univ Maribor,1658,14,0.8%
+821,South Med Univ,8816,72,0.8%
+822,Beni-Suef Univ,1382,11,0.8%
+823,Univ S Africa,1509,12,0.8%
+824,Nanjing Tech Univ,8137,66,0.8%
+825,Banaras Hindu Univ,3642,30,0.8%
+826,Tech Univ Darmstadt,3052,25,0.8%
+827,Tianjin Univ Tradit Chin Med,1500,12,0.8%
+828,Benha Univ,1283,10,0.8%
+829,Pavol Jozef Šafárik Univ Košice,823,7,0.8%
+830,Kent State Univ,1391,11,0.8%
+831,Gustave Eiffel Univ,932,8,0.8%
+832,Soochow Univ,14413,116,0.8%
+833,Dalian Polytech Univ,1960,16,0.8%
+834,KN Toosi Univ Technol,2023,16,0.8%
+835,N Dakota State Univ,1511,12,0.8%
+836,Poznań Univ Med Sci,2297,18,0.8%
+837,Imam Abdulrahman Bin Faisal Univ,1978,16,0.8%
+838,İstanbul Medipol Univ,806,6,0.8%
+839,Chongqing Univ Technol,1301,10,0.8%
+840,Univ Genoa,4798,38,0.8%
+841,Beijing Forestry Univ,4426,35,0.8%
+842,Univ Malaga,2876,23,0.8%
+843,Shahid Chamran Univ Ahwaz,1211,10,0.8%
+844,Umm Al Qura Univ,2101,17,0.8%
+845,Taiyuan Univ Sci & Technol,1213,10,0.8%
+846,Mississippi State Univ,2278,18,0.8%
+847,Shenyang Pharmaceut Univ,2322,18,0.8%
+848,Shaanxi Normal Univ,4387,35,0.8%
+849,Lanzhou Jiaotong Univ,1894,15,0.8%
+850,Southwest Med Univ,2613,21,0.8%
+851,Univ Jinan,3340,27,0.8%
+852,Univ Malaya,5341,42,0.8%
+853,Univ Chile,3239,26,0.8%
+854,Univ Patras,2599,21,0.8%
+855,Beijing Univ Chin Med,2837,22,0.8%
+856,Iran Univ Sci & Technol,4609,37,0.8%
+857,Palacký Univ Olomouc,1929,15,0.8%
+858,Acad Sci & Innovat Res,3090,24,0.8%
+859,Portland State Univ,924,7,0.8%
+860,Univ Missouri - Kansas City,1284,10,0.8%
+861,Tel Aviv Univ,10788,85,0.8%
+862,Riphah Int Univ,889,7,0.8%
+863,Bangladesh Univ Engn & Technol,834,7,0.8%
+864,Comenius Univ Bratislava,2179,17,0.8%
+865,Charles Univ,6796,53,0.8%
+866,Shanmugha Arts Sci Technol & Res Acad,1282,10,0.8%
+867,Rowan Univ,855,7,0.8%
+868,Lublin Univ Technol,920,7,0.8%
+869,Univ Lorraine,4421,35,0.8%
+870,Univ Canberra,893,7,0.8%
+871,Eötvös Loránd Univ,1797,14,0.8%
+872,Univ Lleida,1153,9,0.8%
+873,Chinese Acad Med Sci & Peking Union Med Coll,16171,126,0.8%
+874,Qufu Normal Univ,2530,20,0.8%
+875,Univ Politec Catalunya - BarcelonaTech,3952,31,0.8%
+876,Victoria Univ Wellington,1831,14,0.8%
+877,Univ Salamanca,2422,19,0.8%
+878,S China Normal Univ,5147,40,0.8%
+879,Univ Sunshine Coast,1161,9,0.8%
+880,Univ N Carolina - Greensboro,1031,8,0.8%
+881,RUDN Univ,843,6,0.8%
+882,Huaiyin Inst Technol,874,7,0.8%
+883,Northeast Forestry Univ,4048,31,0.8%
+884,Natl Inst Technol Rourkela,2404,18,0.8%
+885,Hebei Univ Technol,5213,40,0.8%
+886,Univ Sherbrooke,2246,17,0.8%
+887,Univ Trieste,2124,16,0.8%
+888,Jawaharlal Nehru Univ,1425,11,0.8%
+889,Jadavpur Univ,2525,19,0.8%
+890,Huaqiao Univ,2559,19,0.8%
+891,Nanjing Normal Univ,4813,37,0.8%
+892,Iran Univ Med Sci,2789,21,0.8%
+893,Hanyang Univ,7095,54,0.8%
+894,Charles Sturt Univ,1007,8,0.8%
+895,Univ Hail,1168,9,0.8%
+896,Shanghai Normal Univ,1916,15,0.8%
+897,Chongqing Normal Univ,1087,8,0.8%
+898,Univ New Hampshire,1285,10,0.8%
+899,Univ Politec València,4663,35,0.8%
+900,Univ Cagliari,2280,17,0.8%
+901,Indian Inst Technol Kanpur,3349,25,0.8%
+902,Nanjing Univ Chin Med,3341,25,0.8%
+903,Nanjing Univ Aeronaut & Astronaut,10858,82,0.8%
+904,ITMO Univ,1125,8,0.8%
+905,Univ Louisville,2750,21,0.7%
+906,Univ Balearic Islands,1485,11,0.7%
+907,Jining Med Univ,926,7,0.7%
+908,Army Med Univ,3783,28,0.7%
+909,Univ Texas - Arlington,1884,14,0.7%
+910,Hamedan Univ Med Sci,1020,8,0.7%
+911,Open Univ,979,7,0.7%
+912,Southwest Univ,8136,60,0.7%
+913,Mendel Univ,867,6,0.7%
+914,Univ Texas - El Paso,1116,8,0.7%
+915,Qingdao Univ Sci & Technol,4722,35,0.7%
+916,Univ S Bohemia České Budějovice,891,7,0.7%
+917,Hainan Univ,4096,30,0.7%
+918,Henan Univ Technol,2065,15,0.7%
+919,Umeå Univ,3080,23,0.7%
+920,Sichuan Normal Univ,1427,11,0.7%
+921,Paderborn Univ,999,7,0.7%
+922,Indian Inst Technol Delhi,5441,40,0.7%
+923,Univ Teknol MARA,1297,9,0.7%
+924,Univ Shahrood,1256,9,0.7%
+925,Majmaah Univ,966,7,0.7%
+926,Natl Univ Defense Technol,7202,53,0.7%
+927,Shahid Beheshti Univ Med Sci,4443,32,0.7%
+928,Univ Seville,5807,42,0.7%
+929,Univ W Indies,888,6,0.7%
+930,Univ Bretagne Occidentale (EPE),1476,11,0.7%
+931,Akdeniz Univ,1926,14,0.7%
+932,Univ Granada,6041,44,0.7%
+933,Ewha Womans Univ,2779,20,0.7%
+934,Oakland Univ,967,7,0.7%
+935,Oregon State Univ,3884,28,0.7%
+936,Univ Zaragoza,3897,28,0.7%
+937,Univ Reims Champagne-Ardenne,1055,8,0.7%
+938,Univ Rzeszów,1113,8,0.7%
+939,Vienna Univ Technol,3074,22,0.7%
+940,Univ Hohenheim,1532,11,0.7%
+941,Natl Taiwan Univ Sci & Technol,2622,19,0.7%
+942,Roma Tre Univ,1431,10,0.7%
+943,Korea Univ,9991,72,0.7%
+944,Second Mil Med Univ,3591,26,0.7%
+945,Urmia Univ,1641,12,0.7%
+946,Zhejiang Sci-Tech Univ,4043,29,0.7%
+947,Northeast Normal Univ,3480,25,0.7%
+948,Otto von Guericke Univ Magdeburg,1914,14,0.7%
+949,Univ Iceland,1386,10,0.7%
+950,Univ Perugia,3219,23,0.7%
+951,Ohio Univ,1172,8,0.7%
+952,Univ Crete,1269,9,0.7%
+953,Air Force Med Univ,4143,30,0.7%
+954,Wenzhou Med Univ,7289,52,0.7%
+955,Univ Tabriz,3472,25,0.7%
+956,Tianjin Polytech Univ,3146,23,0.7%
+957,Univ Vermont,1998,14,0.7%
+958,Univ Madras,913,7,0.7%
+959,Univ Kentucky,5315,38,0.7%
+960,Tampere Univ,3283,23,0.7%
+961,Middle E Tech Univ,2166,15,0.7%
+962,China Univ Min & Technol,12349,88,0.7%
+963,Guizhou Normal Univ,1208,9,0.7%
+964,Univ Angers,1131,8,0.7%
+965,Capital Normal Univ,1836,13,0.7%
+966,Yunnan Agr Univ,1077,8,0.7%
+967,Guizhou Univ,5923,42,0.7%
+968,Erciyes Univ,2118,15,0.7%
+969,Univ Nevada - Las Vegas,1624,12,0.7%
+970,Inst Natl Polytech Toulouse,980,7,0.7%
+971,Univ Arkansas - Fayetteville,2344,17,0.7%
+972,Univ Ljubljana,5207,37,0.7%
+973,Carl von Ossietzky Univ Oldenburg,1509,11,0.7%
+974,Oslo Metropolitan Univ,1034,7,0.7%
+975,Univ Delhi,4247,30,0.7%
+976,Baylor Univ,1616,11,0.7%
+977,Univ Free State,1412,10,0.7%
+978,Aristotle Univ Thessaloniki,5645,40,0.7%
+979,Univ Girona,1283,9,0.7%
+980,Indian Inst Technol Kharagpur,5552,39,0.7%
+981,Old Dominion Univ,1178,8,0.7%
+982,Univ Cantabria,1676,12,0.7%
+983,Natl Inst Technol Calicut,1018,7,0.7%
+984,Indian Inst Technol Hyderabad,1792,12,0.7%
+985,Henan Inst Sci & Technol,806,6,0.7%
+986,Indian Inst Technol (Indian Sch Mines),2908,20,0.7%
+987,Indian Inst Sci Educ & Res - Pune,911,6,0.7%
+988,Hebei Univ Engn,971,7,0.7%
+989,Chung Yuan Christian Univ,903,6,0.7%
+990,Thapar Inst Engn & Technol,2127,15,0.7%
+991,Univ Basque Country,4597,32,0.7%
+992,Univ Bucharest,1150,8,0.7%
+993,Univ La Frontera,864,6,0.7%
+994,Amrita Univ,1323,9,0.7%
+995,Univ Chem & Technol - Prague,1429,10,0.7%
+996,Univ Sci & Technol Liaoning,1164,8,0.7%
+997,Hubei Univ Technol,1978,14,0.7%
+998,Stellenbosch Univ,3608,25,0.7%
+999,Beijing Univ Technol,8443,58,0.7%
+1000,Sichuan Univ Sci & Engn,977,7,0.7%
+1001,Heilongjiang Univ,1900,13,0.7%
+1002,Tallin Univ Technol,1059,7,0.7%
+1003,Budapest Univ Technol & Econ,2097,14,0.7%
+1004,Univ Kansas,4513,31,0.7%
+1005,Vietnam Natl Univ - Ho Chi Minh City,1597,11,0.7%
+1006,Yonsei Univ,12936,89,0.7%
+1007,Masaryk Univ,2982,20,0.7%
+1008,Univ Windsor,1358,9,0.7%
+1009,Jagiellonian Univ,5753,39,0.7%
+1010,Changzhou Univ,3186,22,0.7%
+1011,Qilu Univ Technol,3732,25,0.7%
+1012,Al-Azhar Univ,2242,15,0.7%
+1013,S Cent Minzu Univ,1173,8,0.7%
+1014,Near E Univ,1030,7,0.7%
+1015,Kyung Hee Univ,6530,44,0.7%
+1016,Inha Univ,3059,21,0.7%
+1017,Fed Univ Santa Maria,2648,18,0.7%
+1018,Natl Kaohsiung Univ Sci & Technol,1675,11,0.7%
+1019,Univ Nis,1121,8,0.7%
+1020,Gazi Univ,2920,20,0.7%
+1021,King Khalid Univ,3611,24,0.7%
+1022,Univ Modena & Reggio Emilia,2844,19,0.7%
+1023,Yazd Univ,1072,7,0.7%
+1024,Warsaw Univ Life Sci,2244,15,0.7%
+1025,Oklahoma State Univ - Stillwater,2547,17,0.7%
+1026,Łódź Univ Technol,2200,15,0.7%
+1027,Univ Ioannina,1565,10,0.7%
+1028,Univ Poitiers,1237,8,0.7%
+1029,Univ Fed Santa Catarina,3928,26,0.7%
+1030,Hungarian Univ Agr & Life Sci,1075,7,0.7%
+1031,Kyoto Univ,11374,75,0.7%
+1032,Yunnan Univ,3913,26,0.7%
+1033,Hebei Univ,3052,20,0.7%
+1034,Shanxi Univ,3396,22,0.7%
+1035,Saarland Univ,2522,17,0.7%
+1036,Montana State Univ,1210,8,0.7%
+1037,Dongguk Univ,2942,19,0.7%
+1038,Jiangxi Normal Univ,1952,13,0.7%
+1039,Silesian Univ Technol,2665,18,0.7%
+1040,Univ KwaZulu-Natal,4023,26,0.7%
+1041,Inst natl recherche sci,1003,7,0.7%
+1042,Shanghai Ocean Univ,2402,16,0.7%
+1043,Suzhou Univ Sci & Technol,1584,10,0.7%
+1044,Guangxi Univ,7223,47,0.7%
+1045,Taif Univ,2910,19,0.7%
+1046,Linyi Univ,927,6,0.7%
+1047,Anhui Jianzhu Univ,823,5,0.7%
+1048,Iuliu Hațieganu Univ Med & Pharma - Cluj-Napoca,1325,9,0.7%
+1049,Tech Univ Braunschweig,1857,12,0.7%
+1050,Inner Mongolia Univ,1792,12,0.7%
+1051,Shanghai Univ Tradit Chin Med,3554,23,0.6%
+1052,Shandong First Med Univ,4104,27,0.6%
+1053,Miguel Hernández Univ,1522,10,0.6%
+1054,IISER Bhopal,941,6,0.6%
+1055,Bandung Inst Technol,1223,8,0.6%
+1056,Chengdu Univ Technol,3188,21,0.6%
+1057,Anhui Agr Univ,2444,16,0.6%
+1058,Med Univ Silesia,2001,13,0.6%
+1059,Univ Lille (EPE),4503,29,0.6%
+1060,Indian Inst Technol Roorkee,4169,27,0.6%
+1061,Ningbo Univ,6969,45,0.6%
+1062,SRM Inst Sci & Technol,3871,25,0.6%
+1063,Inner Mongolia Agr Univ,1526,10,0.6%
+1064,Assiut Univ,1901,12,0.6%
+1065,Yanshan Univ,4746,31,0.6%
+1066,Univ Rouen,1413,9,0.6%
+1067,Moscow Engn Phys Inst,914,6,0.6%
+1068,Fed Univ Pelotas,1727,11,0.6%
+1069,Wrocław Univ Environ & Life Sci,1358,9,0.6%
+1070,Anhui Univ Chin Med,877,6,0.6%
+1071,Univ Sci & Technol - S Korea,1200,8,0.6%
+1072,Poznań Univ Technol,1902,12,0.6%
+1073,Sakarya Univ,1408,9,0.6%
+1074,East Mediterranean Univ,976,6,0.6%
+1075,COMSATS Inst Info Technol,4175,27,0.6%
+1076,Univ Akron,939,6,0.6%
+1077,TU Dortmund Univ,1926,12,0.6%
+1078,Harbin Univ Sci & Technol,2408,15,0.6%
+1079,West Michigan Univ,839,5,0.6%
+1080,Tianjin Med Univ,4345,27,0.6%
+1081,Hebei Normal Univ,1225,8,0.6%
+1082,Nantong Univ,5062,32,0.6%
+1083,Univ Agr Kraków,1348,8,0.6%
+1084,Univ Bourgogne Europe (EPE),805,5,0.6%
+1085,Tohoku Univ,9199,58,0.6%
+1086,Moscow Inst Phys & Technol,1160,7,0.6%
+1087,Xi'an Univ Posts & Telecom,1189,7,0.6%
+1088,Bar-Ilan Univ,2847,18,0.6%
+1089,Tech Univ Bergakad Freiberg,918,6,0.6%
+1090,Univ Los Andes Colombia,1196,7,0.6%
+1091,Pontificia Univ Católica Chile,2911,18,0.6%
+1092,Isfahan Univ Med Sci,2163,13,0.6%
+1093,Shenyang Agr Univ,2118,13,0.6%
+1094,Univ Ghana,1475,9,0.6%
+1095,Anhui Polytech Univ,1131,7,0.6%
+1096,Gachon Univ,3332,21,0.6%
+1097,GLA Univ,803,5,0.6%
+1098,Sichuan Agr Univ,5053,31,0.6%
+1099,Liaoning Normal Univ,1037,6,0.6%
+1100,Lanzhou Univ Technol,3375,21,0.6%
+1101,Lithuanian Univ Hlth Sci,1083,7,0.6%
+1102,Indian Inst Engn Sci & Technol - Shibpur,1083,7,0.6%
+1103,Guangzhou Univ Chin Med,3526,22,0.6%
+1104,Tehran Univ Med Sci,6375,39,0.6%
+1105,Helwan Univ,963,6,0.6%
+1106,Univ Isfahan,1772,11,0.6%
+1107,Marquette Univ,809,5,0.6%
+1108,Univ Alcalá,1961,12,0.6%
+1109,Univ Hyderabad,1358,8,0.6%
+1110,Koneru Lakshmaiah Educ Fnd,823,5,0.6%
+1111,Guangxi Normal Univ,1917,12,0.6%
+1112,Southwest Forestry Univ,1115,7,0.6%
+1113,Karadeniz Tech Univ,1624,10,0.6%
+1114,Dongguan Univ Technol,1154,7,0.6%
+1115,Acad Ctr Educ Culture & Res - Tehran,837,5,0.6%
+1116,Grigore T. Popa Univ Med & Pharma Iași,975,6,0.6%
+1117,China West Normal Univ,986,6,0.6%
+1118,Xiangtan Univ,3316,20,0.6%
+1119,Univ Guilan,1847,11,0.6%
+1120,South Illinois Univ - Carbondale,984,6,0.6%
+1121,Jordan Univ Sci & Technol,1871,11,0.6%
+1122,Univ Seoul,1070,6,0.6%
+1123,Anna Univ,2803,17,0.6%
+1124,Univ Murcia,2852,17,0.6%
+1125,Nanjing Med Univ,12290,74,0.6%
+1126,Civil Aviat Univ China,1061,6,0.6%
+1127,Univ Warmia & Mazury Olsztyn,2090,13,0.6%
+1128,King Faisal Univ,1991,12,0.6%
+1129,Tianjin Univ Technol,2299,14,0.6%
+1130,Taipei Med Univ,3274,20,0.6%
+1131,Razi Univ,1347,8,0.6%
+1132,Univ Jeddah,1067,6,0.6%
+1133,Univ Arkansas Med Sci - Little Rock,1738,10,0.6%
+1134,Indian Inst Technol Bombay,4998,30,0.6%
+1135,Rochester Inst Technol,846,5,0.6%
+1136,Hangzhou Med Coll,1179,7,0.6%
+1137,Kunming Univ Sci & Technol,6802,40,0.6%
+1138,Yangtze Univ,2786,17,0.6%
+1139,Univ Siena,1967,12,0.6%
+1140,Univ Salzburg,933,6,0.6%
+1141,JiLin Agr Univ,1993,12,0.6%
+1142,Payame Noor Univ,1139,7,0.6%
+1143,Pontif Cath Univ Rio de Janeiro,941,6,0.6%
+1144,Tarbiat Modares Univ,4533,27,0.6%
+1145,Guizhou Med Univ,1940,11,0.6%
+1146,Univ Jean Monnet (EPE),832,5,0.6%
+1147,Loyola Univ Chicago,1410,8,0.6%
+1148,Polytech Univ Bucarest,1526,9,0.6%
+1149,Bahauddin Zakariya Univ,1296,8,0.6%
+1150,Indian Agr Res Inst,1393,8,0.6%
+1151,Hebei Univ Sci & Technol,1155,7,0.6%
+1152,King Saud Univ,12453,73,0.6%
+1153,Kharazmi Univ,982,6,0.6%
+1154,Atatürk Univ,2335,14,0.6%
+1155,Shanghai Univ Engn Sci,2425,14,0.6%
+1156,Henan Normal Univ,2653,15,0.6%
+1157,Univ Thessaly,2147,12,0.6%
+1158,Univ Alabama - Tuscaloosa,2732,16,0.6%
+1159,Indian Assoc Cultivation Sci,1001,6,0.6%
+1160,Suez Canal Univ,980,6,0.6%
+1161,Shandong Univ Technol,3086,18,0.6%
+1162,Kumamoto Univ,1939,11,0.6%
+1163,Sharif Univ Technol,3447,20,0.6%
+1164,Ural Fed Univ,1883,11,0.6%
+1165,Mazandaran Univ Med Sci,801,5,0.6%
+1166,Poznań Univ Life Sci,1819,10,0.6%
+1167,Sungkyunkwan Univ,10360,59,0.6%
+1168,Univ León,1070,6,0.6%
+1169,Juntendo Univ,1950,11,0.6%
+1170,Kindai Univ,1651,9,0.6%
+1171,Ben-Gurion Univ Negev,4948,28,0.6%
+1172,Konkuk Univ,3498,20,0.6%
+1173,Univ Valladolid,1986,11,0.6%
+1174,Univ Campinas,7055,40,0.6%
+1175,Kyushu Univ,6970,39,0.6%
+1176,Natl Univ Sci & Technol - Islamabad,2512,14,0.6%
+1177,Univ Split,1247,7,0.6%
+1178,Univ Ibadan,1163,7,0.6%
+1179,Tech Univ Madrid,3947,22,0.6%
+1180,Anhui Med Univ,6018,34,0.6%
+1181,Seoul Natl Univ,19308,109,0.6%
+1182,Mersin Univ,968,5,0.6%
+1183,Alexandria Univ,3315,19,0.6%
+1184,Univ Cordoba,2290,13,0.6%
+1185,Boğaziçi Univ,961,5,0.6%
+1186,Natl Univ Sci & Technol MISIS,855,5,0.6%
+1187,Åbo Akademi Univ,846,5,0.6%
+1188,Liaoning Univ,1180,7,0.6%
+1189,Hubei Univ Med,1113,6,0.6%
+1190,Univ Hassan II Casablanca,1214,7,0.6%
+1191,Univ Extremadura,2257,13,0.6%
+1192,Xinjiang Univ,3966,22,0.6%
+1193,Samsun Ondokuz Mayıs Univ,1547,9,0.6%
+1194,Bharathiar Univ,939,5,0.5%
+1195,Mohammed V Univ,1717,9,0.5%
+1196,Chungbuk Natl Univ,2590,14,0.5%
+1197,Daegu Gyeongbuk Inst Sci & Technol,1008,5,0.5%
+1198,Univ Caen Normandy,1245,7,0.5%
+1199,Univ Fed Rio de Janeiro,5897,32,0.5%
+1200,Shiraz Univ Med Sci,3221,17,0.5%
+1201,Carlos III Univ Madrid,1840,10,0.5%
+1202,Indian Inst Sci,4647,25,0.5%
+1203,Jiangxi Agr Univ,1719,9,0.5%
+1204,Natl Taiwan Univ,10156,55,0.5%
+1205,Punjab Agr Univ,1268,7,0.5%
+1206,Univ Zanjan,1036,6,0.5%
+1207,Univ Life Sci Lublin,1514,8,0.5%
+1208,Keio Univ,4404,24,0.5%
+1209,Univ Jaume I,1472,8,0.5%
+1210,Univ Vet Med Hannover,889,5,0.5%
+1211,Osaka Univ,9247,49,0.5%
+1212,Nicolaus Copernicus Univ Toruń,2490,13,0.5%
+1213,Indian Inst Technol Guwahati,3842,20,0.5%
+1214,Univ Fed Campina Grande,884,5,0.5%
+1215,Tata Inst Fund Res,1230,7,0.5%
+1216,Univ Cadi Ayyad,1352,7,0.5%
+1217,Hainan Med Univ,1454,8,0.5%
+1218,Univ Yaounde I,928,5,0.5%
+1219,Natl Polytech Inst - Mexico,3959,21,0.5%
+1220,Princess Nourah Bint Abdulrahman Univ,2336,12,0.5%
+1221,Novosibirsk State Univ,1224,6,0.5%
+1222,Gansu Agr Univ,1848,10,0.5%
+1223,Fed Univ São Carlos,2805,15,0.5%
+1224,N China Univ Water Resources & Elect Power,1563,8,0.5%
+1225,Wuhan Textile Univ,1434,7,0.5%
+1226,Hunan Normal Univ,3763,19,0.5%
+1227,Çukurova Univ,1835,9,0.5%
+1228,AGH Univ Sci & Technol,3514,18,0.5%
+1229,Univ Szeged,2154,11,0.5%
+1230,N China Univ Sci & Technol,1817,9,0.5%
+1231,Univ Engn Technol Lahore,1111,6,0.5%
+1232,Beijing Univ Civil Engn & Arch,1222,6,0.5%
+1233,Univ Gdańsk,1535,8,0.5%
+1234,Kerman Univ Med Sci,1186,6,0.5%
+1235,İstanbul Tech Univ,3129,16,0.5%
+1236,Miami Univ,1126,6,0.5%
+1237,Univ Alicante,2222,11,0.5%
+1238,Sardar Vallabhbhai Natl Inst Technol - Surat,1027,5,0.5%
+1239,Cracow Univ Technol,1217,6,0.5%
+1240,Ferdowsi Univ Mashhad,3444,18,0.5%
+1241,Ege Univ,2890,15,0.5%
+1242,Shahid Bahonar Univ Kerman,1456,7,0.5%
+1243,Graz Univ Technol,1899,10,0.5%
+1244,Pondicherry Univ,836,4,0.5%
+1245,Natl Inst Technol - Trichy,1549,8,0.5%
+1246,Savitribai Phule Pune Univ,1093,6,0.5%
+1247,Vilnius Univ,2199,11,0.5%
+1248,Univ A Coruña,1441,7,0.5%
+1249,Xuzhou Med Coll,3025,15,0.5%
+1250,Süleyman Demirel Univ,1111,6,0.5%
+1251,Univ Almería,1724,9,0.5%
+1252,Nara Inst Sci & Technol,989,5,0.5%
+1253,Jichi Med Univ,1089,5,0.5%
+1254,Mansoura Univ,3434,17,0.5%
+1255,Univ Marie Louis Pasteur (EPE),1116,6,0.5%
+1256,Hirosaki Univ,1007,5,0.5%
+1257,Univ Guanajuato,932,5,0.5%
+1258,Gyeongsang Natl Univ,2857,14,0.5%
+1259,Dalian Med Univ,2919,15,0.5%
+1260,Zhejiang Chin Med Univ,2953,15,0.5%
+1261,Shanghai Univ Elect Power,1437,7,0.5%
+1262,Padjadjaran University,1002,5,0.5%
+1263,Univ Belgrade,7011,35,0.5%
+1264,Univ Gondar,1419,7,0.5%
+1265,Nagoya Univ,6916,34,0.5%
+1266,Tokai Univ,1095,5,0.5%
+1267,Natl Tsing Hua Univ,3101,15,0.5%
+1268,Natl Distance Educ Univ,1007,5,0.5%
+1269,Chosun Univ,1608,8,0.5%
+1270,Gebze Tech Univ,939,5,0.5%
+1271,Zunyi Med Univ,1970,10,0.5%
+1272,Xi'an Technol Univ,1544,8,0.5%
+1273,Jiangxi Univ Tradit Chin Med,986,5,0.5%
+1274,Northwest Normal Univ,3051,15,0.5%
+1275,Cath Univ Korea,4562,22,0.5%
+1276,Univ Santiago Chile,1031,5,0.5%
+1277,Univ Cádiz,1832,9,0.5%
+1278,Wannan Med Coll,1057,5,0.5%
+1279,Islamic Azad Univ - Sci & Res - Tehran,2556,12,0.5%
+1280,Kaunas Univ Technol,1212,6,0.5%
+1281,Shimane Univ,882,4,0.5%
+1282,Int Islamic Univ Islamabad,863,4,0.5%
+1283,Natl Yunlin Univ Sci & Technol,1056,5,0.5%
+1284,Ningxia Med Univ,1377,7,0.5%
+1285,Univ Nigeria,1526,7,0.5%
+1286,Dong-a Univ,977,5,0.5%
+1287,Capital Med Univ,15250,73,0.5%
+1288,N Minzu Univ,1037,5,0.5%
+1289,Univ Warsaw,3657,17,0.5%
+1290,Fed Univ Rio Grande Norte,2568,12,0.5%
+1291,Celal Bayar Univ,854,4,0.5%
+1292,Shanghai Inst Technol,1568,7,0.5%
+1293,Prince Sattam bin Abdulaziz Univ,2508,12,0.5%
+1294,Adam Mickiewicz Univ Poznań,2462,12,0.5%
+1295,Częstochowa Univ Technol,919,4,0.5%
+1296,Chung-Ang Univ,4870,23,0.5%
+1297,Chongqing Med Univ,7623,36,0.5%
+1298,Kyungpook Natl Univ,5958,28,0.5%
+1299,Xihua Univ,1415,7,0.5%
+1300,Naval Univ Engn,1207,6,0.5%
+1301,Indian Stat Inst,905,4,0.5%
+1302,E China Univ Technol,1261,6,0.5%
+1303,Yanbian Univ,872,4,0.5%
+1304,Harbin Med Univ,4880,23,0.5%
+1305,Univ Jaén,1568,7,0.5%
+1306,Guilin Univ Electron Technol,2333,11,0.5%
+1307,Jeonbuk Natl Univ,3894,18,0.5%
+1308,Changchun Univ Technol,1248,6,0.5%
+1309,Indian Inst Technol Indore,1605,7,0.5%
+1310,Natl Cheng Kung Univ,5935,28,0.5%
+1311,Taiyuan Univ Technol,5570,26,0.5%
+1312,Shahid Beheshti Univ,2879,13,0.5%
+1313,Univ Sfax,2666,12,0.5%
+1314,Univ Punjab,2764,13,0.5%
+1315,Gwangju Inst Sci & Technol,1721,8,0.5%
+1316,Chonnam Natl Univ,4525,21,0.5%
+1317,Univ Pécs,1465,7,0.5%
+1318,Peter Great St Petersburg Polytech Univ,814,4,0.5%
+1319,Univ Fed Rural Pernambuco,1066,5,0.5%
+1320,Univ La Laguna,1586,7,0.5%
+1321,Wuhan Polytech Univ,1078,5,0.5%
+1322,Indian Inst Technol Madras,4957,23,0.5%
+1323,Czech Tech Univ Prague,2067,9,0.5%
+1324,Mil Univ Technol - Warsaw,908,4,0.5%
+1325,Çanakkale Onsekiz Mart Univ,1039,5,0.5%
+1326,Univ São Paulo,20584,93,0.5%
+1327,Tokyo Inst Technol,4710,21,0.4%
+1328,Isfahan Univ Technol,2964,13,0.4%
+1329,Ajou Univ,2726,12,0.4%
+1330,Natl Taiwan Ocean Univ,1245,6,0.4%
+1331,Alexandru Ioan Cuza Univ Iaşi,937,4,0.4%
+1332,Incheon Natl Univ,1562,7,0.4%
+1333,Ankara Univ,2977,13,0.4%
+1334,Taibah Univ,1316,6,0.4%
+1335,HSE Univ,2075,9,0.4%
+1336,Tokyo Med Univ,963,4,0.4%
+1337,Tokyo Metropolitan Univ,1166,5,0.4%
+1338,Univ Karachi,1211,5,0.4%
+1339,Ariel Univ,1546,7,0.4%
+1340,Univ Fed Paraná,3470,15,0.4%
+1341,Univ Peshawar,853,4,0.4%
+1342,Sidi Mohamed Ben Abdellah Univ,1195,5,0.4%
+1343,Univ Wrocław,1639,7,0.4%
+1344,Univ Gadjah Mada,1193,5,0.4%
+1345,Chulalongkorn Univ,4840,21,0.4%
+1346,Hokkaido Univ,7311,31,0.4%
+1347,Ain Shams Univ,3516,15,0.4%
+1348,Univ Fed Espírito Santo,1629,7,0.4%
+1349,Natl Inst Technol Karnataka - Surathkal,1271,5,0.4%
+1350,Univ Zagreb,5512,24,0.4%
+1351,Changchun Univ Chin Med,813,3,0.4%
+1352,Kocaeli Univ,1324,6,0.4%
+1353,Vilnius Gediminas Tech Univ,921,4,0.4%
+1354,Univ Picardie Jules Verne,835,4,0.4%
+1355,Dankook Univ,1824,8,0.4%
+1356,Indian Inst Technol Patna,1290,5,0.4%
+1357,Univ Fed Juiz de Fora,1234,5,0.4%
+1358,Hacettepe Univ,4494,19,0.4%
+1359,Qiqihar Univ,852,4,0.4%
+1360,Marmara Univ,2047,9,0.4%
+1361,Univ Baghdad,861,4,0.4%
+1362,Waseda Univ,2777,12,0.4%
+1363,Univ Haifa,2705,11,0.4%
+1364,Univ Buenos Aires,3648,15,0.4%
+1365,Showa Univ,872,4,0.4%
+1366,Chiba Univ,3012,13,0.4%
+1367,Cairo Univ,6143,25,0.4%
+1368,Bahir Dar Univ,951,4,0.4%
+1369,Univ Silesia Katowice,1433,6,0.4%
+1370,Natl Autonomous Univ Mexico,10040,41,0.4%
+1371,Kyonggi Univ,814,3,0.4%
+1372,Yıldız Tech Univ,2528,10,0.4%
+1373,Univ West Cape,1034,4,0.4%
+1374,Univ Fed Viçosa,2711,11,0.4%
+1375,Univ Republic,1721,7,0.4%
+1376,Bengbu Med Coll,1156,5,0.4%
+1377,Univ Udine,1549,6,0.4%
+1378,Univ Tsukuba,4481,18,0.4%
+1379,All India Inst Med Sci - New Dehli,3254,13,0.4%
+1380,Brock Univ,1020,4,0.4%
+1381,King Mongkut's Univ Technol - Thonburi,1151,5,0.4%
+1382,Natl Cent Univ,2080,8,0.4%
+1383,Postgrad Inst Med Educ & Res,2666,11,0.4%
+1384,Tianjin Normal Univ,1102,4,0.4%
+1385,Keimyung Univ,1177,5,0.4%
+1386,Harbin Normal Univ,1019,4,0.4%
+1387,Xinxiang Med Univ,1233,5,0.4%
+1388,Wrocław Univ Sci & Technol,3128,12,0.4%
+1389,Hiroshima Univ,4695,19,0.4%
+1390,Shanxi Normal Univ,889,4,0.4%
+1391,Rhodes Univ,877,3,0.4%
+1392,Pusan Natl Univ,5961,24,0.4%
+1393,Addis Ababa Univ,1784,7,0.4%
+1394,Indian Inst Technol Ropar,1135,4,0.4%
+1395,Univ Carthage,1272,5,0.4%
+1396,Indian Inst Sci Educ & Res Kolkata,967,4,0.4%
+1397,Shiraz Univ,3220,13,0.4%
+1398,China Jiliang Univ,2269,9,0.4%
+1399,Anhui Normal Univ,1798,7,0.4%
+1400,Mahidol Univ,5053,20,0.4%
+1401,Cumhuriyet Univ,1146,4,0.4%
+1402,Homi Bhabha Natl Inst,2591,10,0.4%
+1403,Univ Fed São Paulo,3415,13,0.4%
+1404,Xi'an Shiyou Univ,1051,4,0.4%
+1405,Soonchunhyang Univ,1780,7,0.4%
+1406,Tezpur Univ,849,3,0.4%
+1407,Univ Latvia,861,3,0.4%
+1408,Menoufia Univ,1478,6,0.4%
+1409,Kangwon Natl Univ,2813,11,0.4%
+1410,Slovak Univ Technol Bratislava,1099,4,0.4%
+1411,Univ Oviedo,2761,10,0.4%
+1412,State Univ Maringá,1890,7,0.4%
+1413,Univ Sci & Technol Houari Boumediene,1034,4,0.4%
+1414,Univ Antioquia,1642,6,0.4%
+1415,Chang Gung Univ,6020,23,0.4%
+1416,Univ Fed Minas Gerais,5844,22,0.4%
+1417,Kanazawa Univ,2484,9,0.4%
+1418,Univ Ulsan,5532,21,0.4%
+1419,Natl Univ Cordoba,1509,6,0.4%
+1420,Ahvaz Jundishapur Univ Med Sci,1046,4,0.4%
+1421,Kyoto Prefect Univ Med,1134,4,0.4%
+1422,Tokushima Univ,1417,5,0.4%
+1423,Univ Fed Alagoas,876,3,0.4%
+1424,Univ Novi Sad,2602,10,0.4%
+1425,Fed Univ Rio Grande do Sul,6042,22,0.4%
+1426,King Mongkut's Inst Technol - Ladkrabang,919,3,0.4%
+1427,Okayama Univ,3041,11,0.4%
+1428,Natl Taiwan Normal Univ,1402,5,0.4%
+1429,Jeju Natl Univ,1481,5,0.4%
+1430,Univ Brasília,3155,11,0.4%
+1431,Fed Univ Paraíba,1961,7,0.4%
+1432,Makerere Univ,1434,5,0.4%
+1433,Yokohama City Univ,1580,6,0.4%
+1434,Chungnam Natl Univ,3984,14,0.4%
+1435,Univ Nal La Plata,1929,7,0.4%
+1436,Air Force Engn Univ,1509,5,0.4%
+1437,Cha Univ,1118,4,0.4%
+1438,Univ Debrecen,2203,8,0.4%
+1439,Heilongjiang Univ Chin Med,834,3,0.4%
+1440,Jimei Univ,1339,5,0.4%
+1441,Selçuk Univ,1662,6,0.4%
+1442,W Pomeranian Univ Technol - Szczecin,1240,4,0.4%
+1443,South Fed Univ,1004,4,0.4%
+1444,Univ Concepción,1740,6,0.4%
+1445,Natl Chung Hsing Univ,2429,9,0.4%
+1446,Rzeszów Univ Technol,1009,4,0.3%
+1447,Natl Yang Ming Chiao Tung Univ,6918,24,0.3%
+1448,Univ Calcutta,1685,6,0.3%
+1449,Univ Huelva,862,3,0.3%
+1450,Fırat Univ,1862,6,0.3%
+1451,Yüzüncü Yıl Univ,1256,4,0.3%
+1452,Univ Mazandaran,896,3,0.3%
+1453,Nara Med Univ,928,3,0.3%
+1454,Univ Fed Rio Grande,861,3,0.3%
+1455,Shijiazhuang Tiedao Univ,966,3,0.3%
+1456,Sahand Univ Technol,1090,4,0.3%
+1457,Anhui Univ Sci & Technol,3212,11,0.3%
+1458,Yancheng Inst Technol,1015,3,0.3%
+1459,Fed Univ Lavras,1702,6,0.3%
+1460,Nagasaki Univ,1978,7,0.3%
+1461,Univ Monastir,1630,6,0.3%
+1462,Ritsumeikan Univ,1205,4,0.3%
+1463,Feng Chia Univ,994,3,0.3%
+1464,Soongsil Univ,1222,4,0.3%
+1465,Tokyo Univ Agr & Technol,1526,5,0.3%
+1466,Tokyo Med & Dent Univ,2408,8,0.3%
+1467,National Chung Cheng Univ,904,3,0.3%
+1468,Yokohama Natl Univ,1082,4,0.3%
+1469,Kaohsiung Med Univ,2512,8,0.3%
+1470,Eskişehir Osmangazi Univ,1310,4,0.3%
+1471,Mie Univ,1244,4,0.3%
+1472,Kunming Med Univ,2416,8,0.3%
+1473,Niigata Univ,1635,5,0.3%
+1474,Univ Las Palmas Gran Canaria,1216,4,0.3%
+1475,Kookmin Univ,1106,4,0.3%
+1476,Kobe Univ,3405,11,0.3%
+1477,Univ Fed Fluminense,2289,7,0.3%
+1478,Natl Sun Yat-sen Univ,1945,6,0.3%
+1479,Chiang Mai Univ,3738,12,0.3%
+1480,Rio de Janeiro State Univ,1638,5,0.3%
+1481,Army Engn Univ PLA,1696,5,0.3%
+1482,Hanoi Univ Sci & Technol,967,3,0.3%
+1483,Victor Babeş Univ Med & Pharma - Timisoara,937,3,0.3%
+1484,Univ Fed Uberlândia,1702,5,0.3%
+1485,Visvesvaraya Natl Inst Technol - Nagpur,960,3,0.3%
+1486,Fed Univ Mato Grosso Sul,913,3,0.3%
+1487,Bursa Uludağ Univ,1597,5,0.3%
+1488,Nagoya Inst Technol,950,3,0.3%
+1489,Gunma Univ,1291,4,0.3%
+1490,Autonomous Univ Nuevo Leon,1529,5,0.3%
+1491,Imam Mohammad Ibn Saud Islamic Univ,986,3,0.3%
+1492,İstanbul Univ,2632,8,0.3%
+1493,Fujian Med Univ,6679,20,0.3%
+1494,Hebei Med Univ,4141,12,0.3%
+1495,Univ Fed Bahia,2088,6,0.3%
+1496,Univ Maine - Orono,996,3,0.3%
+1497,Inner Mongolia Univ Sci & Technol,1041,3,0.3%
+1498,Warsaw Univ Technol,3049,9,0.3%
+1499,Univ Fed Ouro Preto,829,2,0.3%
+1500,Ningxia Univ,1945,6,0.3%
+1501,Univ Tecnol Fed Paraná,1502,4,0.3%
+1502,Univ Yamanashi,1001,3,0.3%
+1503,Natl Taipei Univ Technol,2189,6,0.3%
+1504,Shihezi Univ,2550,7,0.3%
+1505,Tokyo Univ Sci,2107,6,0.3%
+1506,Jiangsu Ocean Univ,841,2,0.3%
+1507,Cochin Univ Sci & Technol,850,2,0.3%
+1508,Necmettin Erbakan Univ,1081,3,0.3%
+1509,Univ Fed Sergipe,1000,3,0.3%
+1510,Kagoshima Univ,1393,4,0.3%
+1511,Airlangga university,806,2,0.3%
+1512,Guangdong Pharmaceut Univ,1432,4,0.3%
+1513,Ehime Univ,1188,3,0.3%
+1514,Pukyong Natl Univ,2072,6,0.3%
+1515,İstanbul Univ Cerrahpaşa,2276,6,0.3%
+1516,VŠB - Tech Univ Ostrava,1197,3,0.3%
+1517,Fed Univ Para,1933,5,0.3%
+1518,Univ Austral Chile,816,2,0.3%
+1519,Changchun Univ Sci & Technol,2359,6,0.3%
+1520,Dokuz Eylül Univ,2064,6,0.3%
+1521,Shandong Jianzhu Univ,1367,4,0.3%
+1522,Shanxi Med Univ,2985,8,0.3%
+1523,Yamaguchi Univ,1178,3,0.3%
+1524,Henan Univ Chin Med,821,2,0.3%
+1525,Inner Mongolia Univ Technol,1140,3,0.3%
+1526,Univ Estadual Paulista,8083,22,0.3%
+1527,Natl Inst Mental Hlth & Neurosci,933,2,0.3%
+1528,Kazan Fed Univ - Volga,1474,4,0.3%
+1529,Univ Fed ABC,1238,3,0.3%
+1530,N Sichuan Med Univ,1128,3,0.3%
+1531,Univ Politec Cartagena,823,2,0.3%
+1532,Shanxi Agr Univ,1436,4,0.3%
+1533,Kwame Nkrumah Univ Sci & Technol,1159,3,0.3%
+1534,Fed Univ Pernambuco,2942,7,0.3%
+1535,Pamukkale Univ,1115,3,0.2%
+1536,Univ Fed Ceará,2531,6,0.2%
+1537,Shinsu Univ,1916,5,0.2%
+1538,Kuwait Univ,1244,3,0.2%
+1539,Nagoya City Univ,1002,2,0.2%
+1540,Univ Toyama,1364,3,0.2%
+1541,Jinzhou Med Univ,920,2,0.2%
+1542,İnönü Univ,1263,3,0.2%
+1543,Gifu Univ,1450,4,0.2%
+1544,Khon Kaen Univ,2436,6,0.2%
+1545,Wonkwang Univ,868,2,0.2%
+1546,Ankara Yıldırım Beyazıt Univ,815,2,0.2%
+1547,Univ Natl Colombia,2264,5,0.2%
+1548,Chengdu Univ Info Technol,876,2,0.2%
+1549,Kasetsart Univ,1997,5,0.2%
+1550,Arak Univ,803,2,0.2%
+1551,Lomonosov Moscow State Univ,6498,15,0.2%
+1552,Thammasat Univ,1182,3,0.2%
+1553,Univ Autonom San Luis Potosí,901,2,0.2%
+1554,Univ Rijeka,950,2,0.2%
+1555,Prince Songkla Univ,2357,5,0.2%
+1556,Qinghai Univ,1405,3,0.2%
+1557,Pontificia Univ Católica Valparaíso,897,2,0.2%
+1558,St Petersburg State Univ,3315,7,0.2%
+1559,Hallym Univ,2345,5,0.2%
+1560,Hongik Univ,917,2,0.2%
+1561,Guangxi Med Univ,3805,8,0.2%
+1562,Tech Univ Košice,1051,2,0.2%
+1563,Shizuoka Univ,1040,2,0.2%
+1564,Seoul Ntl Univ Sci & Technol,1602,3,0.2%
+1565,Tzu Chi Univ,858,2,0.2%
+1566,Osaka Metropolitan Univ,3031,6,0.2%
+1567,Inje Univ,1400,3,0.2%
+1568,Zhejiang Univ Sci & Technol,943,2,0.2%
+1569,Univ Guadalajara,1647,3,0.2%
+1570,Nihon Univ,1971,3,0.2%
+1571,Yamagata Univ,1144,2,0.2%
+1572,Beijing Informat Sci & Technol Univ,993,2,0.2%
+1573,Univ Autónoma Metropolitana,1216,2,0.2%
+1574,Londrina State Univ,1291,2,0.2%
+1575,Info Engn Univ,901,1,0.2%
+1576,Univ Indonesia,1527,2,0.2%
+1577,Univ Tunis El Manar,1995,3,0.1%
+1578,Univ Fed Goiás,2024,3,0.1%
+1579,Kongju Natl Univ,1074,2,0.1%
+1580,Fukushima Med Univ,949,1,0.1%
+1581,Xinjiang Med Univ,1894,2,0.1%
+1582,Univ Hlth Sci - Turkey,5371,7,0.1%
+1583,Jikei Univ Sch Med,1062,1,0.1%
+1584,Tomsk State Univ,964,1,0.1%
+1585,Chung Shan Med Univ,1189,1,0.1%
+1586,Toho Univ,990,1,0.1%
+1587,Tottori Univ,1133,1,0.1%
+1588,Kitasato Univ,1361,2,0.1%
+1589,Tokyo Women's Med Univ,958,1,0.1%
+1590,Gaziantep Univ,913,1,0.1%
+1591,Benemerita Univ Autonoma Puebla,852,1,0.1%
+1592,Jimma Univ,911,1,0.1%
+1593,Başkent Univ,914,1,0.1%
+1594,Natl Def Med Ctr,1170,0,0.0%
