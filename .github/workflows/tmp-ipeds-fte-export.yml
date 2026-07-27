@@ -1,0 +1,62 @@
+name: Temporary IPEDS FTE export
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-ipeds-fte-export.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build named IPEDS FTE table
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import urllib.request
+
+          directory_url = 'https://raw.githubusercontent.com/pnvchaitanya/us-higher-education-dashboard/e5f541bb71b5efef65a5cdea2993a7e4dd56af19/cleaned_data/dim_institution.csv'
+          fte_url = 'https://raw.githubusercontent.com/admiralorbiter/delphi/a3a0af8755c72319c7a8caf7a36cbdeaa75e44d0/data/ipeds/DRVEF122024.csv'
+
+          urllib.request.urlretrieve(directory_url, 'dim_institution.csv')
+          urllib.request.urlretrieve(fte_url, 'DRVEF122024.csv')
+
+          directory = {}
+          with open('dim_institution.csv', encoding='utf-8-sig', newline='') as f:
+              for row in csv.DictReader(f):
+                  directory[row['institution_id']] = row
+
+          output = []
+          with open('DRVEF122024.csv', encoding='utf-8-sig', newline='') as f:
+              for row in csv.DictReader(f):
+                  info = directory.get(row['UNITID'], {})
+                  output.append({
+                      'unitid': row['UNITID'],
+                      'institution_name': info.get('institution_name', ''),
+                      'city': info.get('city', ''),
+                      'state': info.get('state', ''),
+                      'fte12mn': row['FTE12MN'],
+                      'unduplicated_headcount': row['UNDUP'],
+                  })
+
+          with open('ipeds_fte_2024_named.csv', 'w', encoding='utf-8', newline='') as f:
+              writer = csv.DictWriter(f, fieldnames=[
+                  'unitid', 'institution_name', 'city', 'state',
+                  'fte12mn', 'unduplicated_headcount'
+              ])
+              writer.writeheader()
+              writer.writerows(output)
+
+          print(f'Wrote {len(output)} rows')
+          PY
+
+      - name: Upload named FTE table
+        uses: actions/upload-artifact@v4
+        with:
+          name: ipeds-fte-2024-named
+          path: ipeds_fte_2024_named.csv
+          retention-days: 1
